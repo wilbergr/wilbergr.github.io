@@ -1,0 +1,133 @@
+/* Boy birthday theme heading */
+.birthday-app h1 {
+  font-size: 2.7rem;
+  margin-bottom: 1.2rem;
+  color: #1e90ff;
+  letter-spacing: 1px;
+  font-weight: 800;
+  text-shadow: 0 2px 8px #fff6, 0 1px 0 #fff;
+}
+/* ...existing code... */
+
+
+.birthday-app {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  text-align: center;
+  background: rgba(240,250,255,0.97);
+  border-radius: 22px;
+  box-shadow: 0 4px 32px #0002;
+
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: linear-gradient(135deg, #6ec6f7 0%, #1e90ff 100%);
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.balloon-decor {
+  position: absolute;
+  left: -60px;
+  top: -60px;
+  z-index: 2;
+}
+.balloon-decor-right {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  z-index: 2;
+}
+.cake-decor {
+  position: absolute;
+  left: 50%;
+  bottom: -70px;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.carousel-controls button {
+  font-size: 1.5rem;
+  padding: 0.5em 1em;
+  border-radius: 50%;
+  border: none;
+  background: #1e90ff;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px #1e90ff33;
+}
+.carousel-controls button:hover {
+  background: #1565c0;
+  transform: scale(1.1);
+}
+
+.carousel-controls span {
+  color: #1565c0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.meme-editor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: #e3f2fdcc;
+  border-radius: 12px;
+  padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+  box-shadow: 0 1px 8px #1e90ff22;
+}
+
+.text-inputs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.text-inputs input {
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  border: 1.5px solid #1e90ff;
+  font-size: 1.05rem;
+  background: #e3f2fd;
+  color: #1565c0;
+  outline: none;
+  transition: border 0.2s;
+}
+.text-inputs input:focus {
+  border: 2px solid #6ec6f7;
+}
+
+.meme-editor button {
+  background: linear-gradient(90deg, #1e90ff 0%, #6ec6f7 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75em 2em;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #1e90ff33;
+  transition: background 0.2s, transform 0.2s;
+}
+.meme-editor button:hover {
+  background: linear-gradient(90deg, #1565c0 0%, #6ec6f7 100%);
+  transform: scale(1.05);
+}
