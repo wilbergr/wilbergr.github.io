@@ -4,6 +4,7 @@ import './App.css';
 import memesData from './memes.json';
 
 function App() {
+  const [showRiddle, setShowRiddle] = useState(false);
   // Load images and meme text from memes.json
   const [images, setImages] = useState(memesData);
   const [current, setCurrent] = useState(0);
@@ -159,7 +160,6 @@ function App() {
         <ellipse cx="50" cy="2" rx="4" ry="2" fill="#ffd54f"/>
       </svg>
       <h1>Birthday Meme Generator 🎉</h1>
-      <input type="file" accept="image/*" multiple onChange={handleUpload} />
       {images.length > 0 && (
         <>
           <div className="carousel-controls">
@@ -178,7 +178,60 @@ function App() {
             }}>&gt;</button>
           </div>
           <div className="meme-editor">
-            <canvas ref={canvasRef} style={{maxWidth:'100%', maxHeight:400, border:'2px solid #ccc', marginBottom:16}} />
+            <canvas
+              ref={canvasRef}
+              style={{maxWidth:'100%', maxHeight:400, border:'2px solid #ccc', marginBottom:16, cursor: images[current]?.riddleText ? 'pointer' : 'default'}}
+              onClick={() => {
+                if (images[current]?.riddleText) setShowRiddle(true);
+              }}
+            />
+      {/* Riddle Dialog */}
+      {showRiddle && images[current]?.riddleText && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'rgba(0,0,0,0.4)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000
+        }}>
+          <div style={{
+            background: '#fff',
+            borderRadius: 12,
+            padding: '2rem 1.5rem',
+            maxWidth: 340,
+            boxShadow: '0 4px 32px #0003',
+            textAlign: 'center',
+            position: 'relative'
+          }}>
+            <div style={{fontSize: '1.2rem', marginBottom: 24, color: '#1e90ff', fontWeight: 600}}>
+              {images[current].riddleText}
+            </div>
+            <button
+              style={{
+                background: 'linear-gradient(90deg, #1e90ff 0%, #6ec6f7 100%)',
+                color: '#fff',
+                border: 'none',
+                borderRadius: 8,
+                padding: '0.6em 2em',
+                fontSize: '1.1rem',
+                cursor: 'pointer',
+                fontWeight: 600,
+                boxShadow: '0 2px 8px #1e90ff33',
+                transition: 'background 0.2s, transform 0.2s',
+                marginTop: 8
+              }}
+              onClick={() => setShowRiddle(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
             <div style={{
               marginBottom: 8,
               color: '#b23a8e',
@@ -199,7 +252,13 @@ function App() {
               <input type="text" placeholder="Top text" value={topText} onChange={e=>setTopText(e.target.value)} />
               <input type="text" placeholder="Bottom text" value={bottomText} onChange={e=>setBottomText(e.target.value)} />
             </div>
-            <button onClick={handleDownload}>Download Meme</button>
+            <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 8 }}>
+              <button onClick={handleDownload}>Download Meme</button>
+              <label className="upload-btn">
+                Create Meme
+                <input type="file" accept="image/*" multiple onChange={handleUpload} style={{ display: 'none' }} />
+              </label>
+            </div>
           </div>
         </>
       )}

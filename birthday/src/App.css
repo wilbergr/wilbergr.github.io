@@ -1,3 +1,83 @@
+@media (max-width: 600px) {
+  .birthday-app {
+    max-width: 98vw;
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    border-radius: 12px;
+  }
+  .birthday-app h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.7rem;
+  }
+  .carousel-controls {
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+  }
+  .carousel-controls button {
+    font-size: 1.1rem;
+    padding: 0.4em 0.7em;
+  }
+  .carousel-controls span {
+    font-size: 1rem;
+  }
+  .meme-editor {
+    padding: 0.5rem 0.1rem 0.7rem 0.1rem;
+    gap: 0.5rem;
+  }
+  .meme-editor button,
+  .upload-btn {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    min-width: 120px;
+  }
+  .text-inputs {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: stretch;
+  }
+  .text-inputs input {
+    min-width: 0;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.6em 0.7em;
+  }
+  .balloon-decor, .balloon-decor-right {
+    width: 48px !important;
+    height: 84px !important;
+    left: -30px;
+    right: -30px;
+    top: -30px;
+  }
+  .cake-decor {
+    width: 60px !important;
+    height: 40px !important;
+    bottom: -40px;
+  }
+  .meme-editor canvas {
+    max-width: 100vw !important;
+    max-height: 220px !important;
+  }
+}
+.upload-btn {
+  background: linear-gradient(90deg, #1e90ff 0%, #6ec6f7 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75em 2em;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #1e90ff33;
+  transition: background 0.2s, transform 0.2s;
+  margin-left: 0.5em;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.upload-btn:hover {
+  background: linear-gradient(90deg, #1565c0 0%, #6ec6f7 100%);
+  transform: scale(1.05);
+}
 /* Boy birthday theme heading */
 .birthday-app h1 {
   font-size: 2.7rem;
@@ -102,14 +182,18 @@ body {
   margin-bottom: 1rem;
 }
 .text-inputs input {
-  padding: 0.5em 1em;
+  padding: 0.75em 1.2em;
   border-radius: 8px;
   border: 1.5px solid #1e90ff;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   background: #e3f2fd;
   color: #1565c0;
   outline: none;
   transition: border 0.2s;
+  min-width: 320px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 .text-inputs input:focus {
   border: 2px solid #6ec6f7;

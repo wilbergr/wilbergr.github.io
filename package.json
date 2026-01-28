@@ -1,0 +1,14 @@
+{
+  "name": "wilbergr-github-io",
+  "version": "1.0.0",
+  "description": "Multi-app GitHub Pages site",
+  "private": true,
+  "scripts": {
+    "deploy": "gh-pages --add --nojekyll -t -m \"Deploy root landing page\" -d . -e birthday -e node_modules -e .git",
+    "deploy:birthday": "cd birthday && npm run deploy",
+    "deploy:all": "npm run deploy && npm run deploy:birthday"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

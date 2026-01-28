@@ -18,6 +18,13 @@
     "bottomText": "...and you're already there like a Bible ninja."
   },
   {
+    "url": "/images/young.jpg",
+    "name": "young.jpg",
+    "topText": "Happy Birthday!",
+    "bottomText": "",
+    "riddleText": "In Ezekial's vision of the future temple, what is the total length in feet of one side of the outer wall enclosing the temple complex assuming the use of a royal cubit?"
+  },
+  {
     "url": "/images/pen-image.png",
     "name": "pen-image.png",
     "topText": "Lathe today,",
@@ -48,6 +55,13 @@
     "bottomText": "...that doesn't run. But still. Brilliance."
   },
   {
+    "url": "/images/banana.jpg",
+    "name": "banana.jpg",
+    "topText": "Happy Birthday!",
+    "bottomText": "",
+    "riddleText": "What is the sum of the ages of all patriarchs (through Abraham) at the time they fathered their sons? Subtract 1100 years."
+  },
+  {
     "url": "/images/guitar.jpg",
     "name": "guitar.jpg",
     "topText": "When you finally master that one riff…",
@@ -58,6 +72,37 @@
     "name": "tuxedo.jpg",
     "topText": "Dressed like James Bond, ",
     "bottomText": "vibes like Mr. Bean"
+  },
+  {
+    "url": "/images/anime.jpg",
+    "name": "anime.jpg",
+    "topText": "When you finally unlock your true form",
+    "bottomText": "and become anime."
+  },
+  {
+    "url": "/images/work.jpg",
+    "name": "work.jpg",
+    "topText": "Happy Birthday!",
+    "bottomText": "",
+    "riddleText": "The number of man, less Abraham's age at Sarah's death.  Add the number of years of Israel's captivity in Babylon/Persia.  Lose the number of  days that the two witnesses will prophecy.  Include all of the years of Seth's life."
+  },
+  {
+    "url": "/images/bearded.jpg",
+    "name": "bearded.jpg",
+    "topText": "Beard game so strong",
+    "bottomText": ", even my hair’s jealous."
+  },
+  {
+    "url": "/images/ghibli.jpg",
+    "name": "ghibli.jpg",
+    "topText": "When you accidentally stumble into",
+    "bottomText": "a wholesome anime moment."
+  },
+  {
+    "url": "/images/simpsons.jpg",
+    "name": "simpsons.jpg",
+    "topText": "That look on your face",
+    "bottomText": "when you see yourself as a Simpson Character"
   },
   {
     "url": "/images/ufo.jpg",
@@ -78,26 +123,14 @@
     "bottomText": ""
   },
   {
-    "url": "/images/3138919306417209817.jpg",
-    "name": "3138919306417209817.jpg",
+    "url": "/images/beardless.jpg",
+    "name": "beardless.jpg",
     "topText": "Happy Birthday!",
-    "bottomText": ""
-  },
-  {
+    "bottomText": "",
+    "riddleText": "Add the number of men who lapped water and all the number of years Israel was in Egypt. Then take away the number of fish the rock caught."
+  },{
     "url": "/images/avalanche.png",
     "name": "avalanche.png",
-    "topText": "Happy Birthday!",
-    "bottomText": ""
-  },
-  {
-    "url": "/images/banana.png",
-    "name": "banana.png",
-    "topText": "Happy Birthday!",
-    "bottomText": ""
-  },
-  {
-    "url": "/images/1154616155515057421.png",
-    "name": "1154616155515057421.png",
     "topText": "Happy Birthday!",
     "bottomText": ""
   }
