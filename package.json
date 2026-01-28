@@ -4,7 +4,9 @@
   "description": "Multi-app GitHub Pages site",
   "private": true,
   "scripts": {
-    "deploy": "gh-pages --add --nojekyll -t -m \"Deploy root landing page\" -d . -e birthday -e node_modules -e .git",
+    "predeploy": "mkdir -p .deploy-root && cp index.html styles.css README.md .deploy-root/",
+    "deploy": "gh-pages -d .deploy-root --add -m \"Deploy root landing page\"",
+    "postdeploy": "rm -rf .deploy-root",
     "deploy:birthday": "cd birthday && npm run deploy",
     "deploy:all": "npm run deploy && npm run deploy:birthday"
   },
