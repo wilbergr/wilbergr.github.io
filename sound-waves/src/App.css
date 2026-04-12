@@ -571,7 +571,7 @@
   font-size: 0.85rem;
 }
 
-/* Responsive */
+/* Responsive - Tablet */
 @media (max-width: 768px) {
   .app-header h1 {
     font-size: 1.8rem;
@@ -580,6 +580,10 @@
   .frequency-input-group {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .waveform-picker {
+    flex-wrap: wrap;
   }
 
   .chord-grid {
@@ -602,5 +606,148 @@
 
   .consonance-meter {
     flex-wrap: wrap;
+  }
+
+  .play-controls {
+    flex-wrap: wrap;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+  #root {
+    padding: 0 12px;
+  }
+
+  .app-header {
+    padding: 30px 0 16px;
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .back-link {
+    position: static;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  /* Educational content */
+  .edu-section {
+    padding: 20px 16px;
+  }
+
+  .ratio-examples {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .ratio-big {
+    font-size: 1.5rem;
+  }
+
+  .ratio-example {
+    padding: 14px 10px;
+  }
+
+  /* Frequency Explorer */
+  .controls-section {
+    padding: 20px 16px;
+  }
+
+  .presets {
+    gap: 6px;
+  }
+
+  .preset-btn {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+  }
+
+  .waveform-picker {
+    flex-wrap: wrap;
+  }
+
+  .waveform-btn {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+  }
+
+  /* Interval table - hide less important columns on mobile */
+  .interval-table {
+    font-size: 0.75rem;
+  }
+
+  .interval-table th,
+  .interval-table td {
+    padding: 6px 6px;
+  }
+
+  .interval-table th:nth-child(4),
+  .interval-table td:nth-child(4) {
+    display: none;
+  }
+
+  .interval-table th:nth-child(6),
+  .interval-table td:nth-child(6) {
+    display: none;
+  }
+
+  .play-btn.small {
+    padding: 4px 6px;
+    font-size: 0.72rem;
+  }
+
+  .play-cell {
+    gap: 3px;
+  }
+
+  /* Wave visualization */
+  .visualization-section {
+    padding: 20px 12px;
+  }
+
+  .selected-tag {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+  }
+
+  .play-controls {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .play-btn {
+    padding: 6px 12px;
+    font-size: 0.82rem;
+  }
+
+  .toggle-label {
+    font-size: 0.78rem;
+  }
+
+  /* Chord explorer */
+  .chord-card {
+    padding: 16px;
+  }
+
+  .chord-note {
+    padding: 5px 8px;
+    font-size: 0.85rem;
+  }
+
+  .chord-note small {
+    font-size: 0.65rem;
+  }
+
+  /* Footer */
+  .app-footer {
+    font-size: 0.78rem;
+    padding: 16px 8px;
   }
 }
