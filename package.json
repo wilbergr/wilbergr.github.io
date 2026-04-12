@@ -10,7 +10,8 @@
     "deploy:birthday": "cd birthday && npm run deploy",
     "deploy:piano": "cd piano-app && npm run deploy",
     "deploy:chess": "cd chess-app && npm run deploy",
-    "deploy:all": "npm run deploy && npm run deploy:birthday && npm run deploy:piano && npm run deploy:chess"
+    "deploy:sound-waves": "cd sound-waves && npm run deploy",
+    "deploy:all": "npm run deploy && npm run deploy:birthday && npm run deploy:piano && npm run deploy:chess && npm run deploy:sound-waves"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
