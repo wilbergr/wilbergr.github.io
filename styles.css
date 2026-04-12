@@ -46,10 +46,25 @@ body {
   margin-bottom: 8px;
 }
 
-.login-box > p {
-  color: #888;
+.steve-warning {
+  color: #555;
   font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.steve-callout {
+  color: #e53e3e;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.steve-sub {
+  color: #999;
+  font-size: 0.85rem;
   margin-bottom: 24px;
+  font-style: italic;
 }
 
 #login-form {

@@ -9,14 +9,16 @@
   <body>
     <div id="login-gate" class="login-gate">
       <div class="login-box">
-        <div class="login-icon">🔒</div>
-        <h1>Wilbergr's Web Apps</h1>
-        <p>Enter password to continue</p>
+        <div class="login-icon">🚫</div>
+        <h1>ACCESS RESTRICTED</h1>
+        <p class="steve-warning">This page is password-protected to keep out <strong>one specific person</strong>.</p>
+        <p class="steve-callout">Steve, if that's you — stop trying. You know you're not allowed in here. Go away.</p>
+        <p class="steve-sub">Everyone else is welcome. Just enter the password.</p>
         <form id="login-form" onsubmit="return handleLogin(event)">
           <input type="password" id="password-input" class="password-input" placeholder="Password" autocomplete="off" autofocus />
           <button type="submit" class="login-btn">Enter</button>
         </form>
-        <p id="login-error" class="login-error" hidden>Incorrect password</p>
+        <p id="login-error" class="login-error" hidden>Nice try, Steve.</p>
       </div>
     </div>
 
