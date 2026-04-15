@@ -49,13 +49,13 @@ function waveformValue(type, phase) {
   }
 }
 
-function drawWave(ctx, width, height, frequency, baseFreq, color, alpha, waveType) {
+function drawWave(ctx, width, height, frequency, baseFreq, color, alpha, waveType, cycles) {
   ctx.beginPath();
   ctx.strokeStyle = color;
   ctx.globalAlpha = alpha;
   ctx.lineWidth = 2.5;
 
-  const cyclesOfRoot = 16;
+  const cyclesOfRoot = cycles;
   const totalTime = cyclesOfRoot / baseFreq;
 
   const centerY = height / 2;
@@ -76,7 +76,7 @@ function drawWave(ctx, width, height, frequency, baseFreq, color, alpha, waveTyp
   ctx.globalAlpha = 1;
 }
 
-function drawCombinedWave(ctx, width, height, frequencies, baseFreq, waveType) {
+function drawCombinedWave(ctx, width, height, frequencies, baseFreq, waveType, cycles) {
   if (frequencies.length === 0) return;
 
   ctx.beginPath();
@@ -84,7 +84,7 @@ function drawCombinedWave(ctx, width, height, frequencies, baseFreq, waveType) {
   ctx.lineWidth = 3;
   ctx.globalAlpha = 0.9;
 
-  const cyclesOfRoot = 16;
+  const cyclesOfRoot = cycles;
   const totalTime = cyclesOfRoot / baseFreq;
   const centerY = height / 2;
   const amplitude = height * 0.38 / frequencies.length;
@@ -108,10 +108,10 @@ function drawCombinedWave(ctx, width, height, frequencies, baseFreq, waveType) {
   ctx.globalAlpha = 1;
 }
 
-function drawAlignmentMarkers(ctx, width, height, frequencies, baseFreq, waveType) {
+function drawAlignmentMarkers(ctx, width, height, frequencies, baseFreq, waveType, cycles) {
   if (frequencies.length < 2) return;
 
-  const cyclesOfRoot = 16;
+  const cyclesOfRoot = cycles;
   const totalTime = cyclesOfRoot / baseFreq;
   const amplitude = height * 0.38;
   const centerY = height / 2;
@@ -161,7 +161,7 @@ function drawGrid(ctx, width, height) {
   }
 }
 
-export default function WaveVisualizer({ frequencies, rootFrequency, showCombined = false, waveform = 'sine', height = 280, width = 3200 }) {
+export default function WaveVisualizer({ frequencies, rootFrequency, showCombined = false, waveform = 'sine', height = 280, width = 3200, cycles = 16 }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -180,17 +180,17 @@ export default function WaveVisualizer({ frequencies, rootFrequency, showCombine
     const h = height;
 
     drawGrid(ctx, w, h);
-    drawAlignmentMarkers(ctx, w, h, frequencies, rootFrequency, waveform);
+    drawAlignmentMarkers(ctx, w, h, frequencies, rootFrequency, waveform, cycles);
 
     const individualAlpha = showCombined ? 0.4 : 0.85;
     frequencies.forEach((freq, i) => {
-      drawWave(ctx, w, h, freq, rootFrequency, COLORS[i % COLORS.length], individualAlpha, waveform);
+      drawWave(ctx, w, h, freq, rootFrequency, COLORS[i % COLORS.length], individualAlpha, waveform, cycles);
     });
 
     if (showCombined) {
-      drawCombinedWave(ctx, w, h, frequencies, rootFrequency, waveform);
+      drawCombinedWave(ctx, w, h, frequencies, rootFrequency, waveform, cycles);
     }
-  }, [frequencies, rootFrequency, showCombined, waveform, height, width]);
+  }, [frequencies, rootFrequency, showCombined, waveform, height, width, cycles]);
 
   return (
     <div style={{ overflowX: 'auto', borderRadius: '8px' }}>

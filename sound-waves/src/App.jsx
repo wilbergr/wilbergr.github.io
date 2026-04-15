@@ -38,6 +38,7 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showCombined, setShowCombined] = useState(false);
   const [waveform, setWaveformState] = useState(getWaveform());
+  const [cycles, setCycles] = useState(16);
   const vizRef = useRef(null);
 
   const handleWaveformChange = useCallback((type) => {
@@ -243,6 +244,20 @@ export default function App() {
               Show combined wave
             </label>
           </div>
+          <div className="cycles-control">
+            <label>
+              Cycles: <strong>{cycles}</strong>
+              <input
+                type="range"
+                min="1"
+                max="200"
+                step="1"
+                value={cycles}
+                onChange={(e) => setCycles(parseInt(e.target.value, 10))}
+                className="cycles-slider"
+              />
+            </label>
+          </div>
         </div>
 
         <p className="viz-hint">Each color represents one frequency. Notice how simpler ratios create waves whose crests overlap regularly.</p>
@@ -252,7 +267,8 @@ export default function App() {
           showCombined={showCombined}
           waveform={waveform}
           height={280}
-          width={3200}
+          width={Math.max(800, cycles * 200)}
+          cycles={cycles}
         />
       </section>
 
