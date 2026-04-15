@@ -75,6 +75,160 @@ export default function EducationalContent() {
           </section>
 
           <section className="edu-section">
+            <h2>Types of Consonance & Dissonance</h2>
+            <p>
+              In music theory, intervals are classified by how stable or tense they sound. These categories come from
+              centuries of Western music tradition and are rooted in the simplicity of their frequency ratios.
+            </p>
+            <div className="consonance-definitions">
+              <div className="consonance-def">
+                <h3>Perfect Consonance</h3>
+                <p>
+                  The most stable, "pure" sounding intervals. These have the simplest frequency ratios and their
+                  wave peaks align very frequently. They sound so stable that they can feel "hollow" or "open."
+                </p>
+                <ul>
+                  <li><strong>Unison (P1)</strong> — ratio 1:1 — identical frequencies</li>
+                  <li><strong>Octave (P8)</strong> — ratio 2:1 — one note vibrates exactly twice as fast</li>
+                  <li><strong>Perfect Fifth (P5)</strong> — ratio 3:2 — the backbone of most chords</li>
+                  <li><strong>Perfect Fourth (P4)</strong> — ratio 4:3 — the fifth's "mirror"</li>
+                </ul>
+              </div>
+              <div className="consonance-def">
+                <h3>Imperfect Consonance</h3>
+                <p>
+                  Pleasant and harmonious, but with more warmth and color than perfect consonances. These are the
+                  intervals that give chords their major or minor character.
+                </p>
+                <ul>
+                  <li><strong>Major Third (M3)</strong> — ratio 5:4 — bright, happy sound</li>
+                  <li><strong>Minor Third (m3)</strong> — ratio 6:5 — dark, sad sound</li>
+                  <li><strong>Major Sixth (M6)</strong> — ratio 5:3 — warm, sweet</li>
+                  <li><strong>Minor Sixth (m6)</strong> — ratio 8:5 — bittersweet, emotional</li>
+                </ul>
+              </div>
+              <div className="consonance-def">
+                <h3>Dissonance</h3>
+                <p>
+                  Intervals that create tension and instability. Their complex ratios mean wave peaks rarely align,
+                  producing "beating" — rapid fluctuations that sound rough. Dissonance isn't bad — it creates
+                  musical tension that makes resolution to consonance satisfying.
+                </p>
+                <ul>
+                  <li><strong>Major Second (M2)</strong> — ratio 9:8 — mild tension</li>
+                  <li><strong>Minor Second (m2)</strong> — ratio 16:15 — sharp, clashing</li>
+                  <li><strong>Tritone (TT)</strong> — ratio 45:32 — maximum dissonance, the "devil's interval"</li>
+                  <li><strong>Major Seventh (M7)</strong> — ratio 15:8 — bright tension, wants to resolve up</li>
+                  <li><strong>Minor Seventh (m7)</strong> — ratio 9:5 — bluesy, jazzy tension</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section className="edu-section">
+            <h2>Calculating Frequencies from Ratios</h2>
+            <p>
+              To find the frequency of any interval, simply multiply the <strong>root frequency</strong> by the
+              interval's <strong>ratio</strong>. These are <em>just intonation</em> ratios — pure mathematical
+              relationships from the harmonic series.
+            </p>
+            <div className="math-examples">
+              <p className="math-heading">Using Middle C (261.63 Hz) as the root:</p>
+              <div className="math-example">
+                <div className="math-formula">
+                  <span className="math-interval">Perfect Fifth (P5)</span>
+                  <span className="math-calc">261.63 Hz &times; 3/2 = <strong>392.45 Hz</strong></span>
+                  <span className="math-note">&#8776; G4</span>
+                </div>
+              </div>
+              <div className="math-example">
+                <div className="math-formula">
+                  <span className="math-interval">Major Third (M3)</span>
+                  <span className="math-calc">261.63 Hz &times; 5/4 = <strong>327.04 Hz</strong></span>
+                  <span className="math-note">&#8776; E4</span>
+                </div>
+              </div>
+              <div className="math-example">
+                <div className="math-formula">
+                  <span className="math-interval">Octave (P8)</span>
+                  <span className="math-calc">261.63 Hz &times; 2/1 = <strong>523.25 Hz</strong></span>
+                  <span className="math-note">&#8776; C5</span>
+                </div>
+              </div>
+              <div className="math-example">
+                <div className="math-formula">
+                  <span className="math-interval">Minor Third (m3)</span>
+                  <span className="math-calc">261.63 Hz &times; 6/5 = <strong>313.96 Hz</strong></span>
+                  <span className="math-note">&#8776; Eb4</span>
+                </div>
+              </div>
+              <div className="math-example">
+                <div className="math-formula">
+                  <span className="math-interval">Perfect Fourth (P4)</span>
+                  <span className="math-calc">261.63 Hz &times; 4/3 = <strong>348.83 Hz</strong></span>
+                  <span className="math-note">&#8776; F4</span>
+                </div>
+              </div>
+            </div>
+            <p>
+              <strong>Key insight:</strong> The simpler the fraction, the more consonant the interval.
+              A fifth (3/2) sounds more stable than a tritone (45/32) because small whole numbers
+              produce wave patterns that repeat more frequently.
+            </p>
+          </section>
+
+          <section className="edu-section">
+            <h2>Waveform Shapes</h2>
+            <p>
+              The <strong>waveform</strong> describes the <em>shape</em> of a sound wave — how the air pressure changes
+              over each cycle. Different shapes produce different timbres (tone colors), even at the same pitch and
+              volume. This is why a flute and a violin playing the same note sound different.
+            </p>
+            <div className="waveform-definitions">
+              <div className="waveform-def">
+                <h3>Sine Wave</h3>
+                <p>
+                  The purest, simplest sound — a single frequency with no overtones. It sounds smooth, clean, and
+                  "electronic." Think of a tuning fork or a whistle. Sine waves are the building blocks of all other
+                  waveforms — any complex sound can be broken down into a combination of sine waves
+                  (this is called <strong>Fourier analysis</strong>).
+                </p>
+              </div>
+              <div className="waveform-def">
+                <h3>Triangle Wave</h3>
+                <p>
+                  A softer, mellower sound. Contains only <strong>odd harmonics</strong> (3rd, 5th, 7th...) that
+                  fall off quickly in volume, giving it a gentler tone than a square wave. Sounds like a muted
+                  woodwind or a soft flute. Often used in retro video game music for bass and melody lines.
+                </p>
+              </div>
+              <div className="waveform-def">
+                <h3>Sawtooth Wave</h3>
+                <p>
+                  The richest, most harmonically complex basic waveform. Contains <strong>all harmonics</strong> (both
+                  odd and even) at decreasing amplitudes. Sounds bright, buzzy, and aggressive — like a bowed string
+                  or a brass instrument. It's the most popular waveform in synthesizers because its harmonic richness
+                  makes it a great starting point for filtering into other sounds.
+                </p>
+              </div>
+              <div className="waveform-def">
+                <h3>Square Wave</h3>
+                <p>
+                  A hollow, reedy sound. Contains only <strong>odd harmonics</strong> (3rd, 5th, 7th...) at stronger
+                  amplitudes than a triangle wave, giving it a more nasal, clarinet-like quality. The abrupt on/off
+                  nature of the wave creates a distinctive "buzzy" tone. Classic in 8-bit video game music and early
+                  electronic music.
+                </p>
+              </div>
+            </div>
+            <p>
+              <strong>Try it:</strong> Switch between waveforms using the picker above the visualization and listen
+              to how the same intervals sound different with each shape. Notice how the wave overlaps look different
+              too — more complex waveforms produce more intricate combined patterns.
+            </p>
+          </section>
+
+          <section className="edu-section">
             <h2>From Intervals to Chords</h2>
             <p>
               A <strong>chord</strong> is built by stacking intervals on top of a root note. A <strong>triad</strong> uses
