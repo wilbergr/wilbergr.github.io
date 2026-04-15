@@ -8,7 +8,7 @@ const CONSONANCE_BADGES = {
   dissonant: { label: 'Dissonant', color: '#ef5350' },
 };
 
-export default function IntervalTable({ rootFrequency, selectedIntervals, onToggleInterval }) {
+export default function IntervalTable({ rootFrequency, selectedIntervals, onToggleInterval, volumes, onVolumeChange }) {
   function handlePlayInterval(interval) {
     const freq = getFrequencyForInterval(rootFrequency, interval);
     playChordForDuration([rootFrequency, freq], 2000);
@@ -30,6 +30,7 @@ export default function IntervalTable({ rootFrequency, selectedIntervals, onTogg
             <th>Decimal</th>
             <th>Frequency</th>
             <th>Note</th>
+            <th>Volume</th>
             <th>Consonance</th>
             <th>Play</th>
           </tr>
@@ -68,6 +69,23 @@ export default function IntervalTable({ rootFrequency, selectedIntervals, onTogg
                 <td className="decimal-cell">{getRatioValue(interval.ratio).toFixed(4)}</td>
                 <td className="freq-cell">{freq.toFixed(1)} Hz</td>
                 <td className="note-cell">{frequencyToNoteName(freq)}</td>
+                <td className="volume-cell">
+                  {isSelected && (
+                    <div className="volume-slider-row">
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        step="1"
+                        value={Math.round((volumes[interval.shortName] ?? 1) * 100)}
+                        onChange={(e) => onVolumeChange(interval.shortName, parseInt(e.target.value, 10) / 100)}
+                        className="volume-slider"
+                        title={`${Math.round((volumes[interval.shortName] ?? 1) * 100)}%`}
+                      />
+                      <span className="volume-pct">{Math.round((volumes[interval.shortName] ?? 1) * 100)}%</span>
+                    </div>
+                  )}
+                </td>
                 <td>
                   <span className="consonance-badge" style={{ backgroundColor: badge.color }}>
                     {badge.label}

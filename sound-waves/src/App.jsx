@@ -39,6 +39,7 @@ export default function App() {
   const [showCombined, setShowCombined] = useState(false);
   const [waveform, setWaveformState] = useState(getWaveform());
   const [cycles, setCycles] = useState(16);
+  const [volumes, setVolumes] = useState({});
   const vizRef = useRef(null);
 
   const handleWaveformChange = useCallback((type) => {
@@ -68,6 +69,10 @@ export default function App() {
     });
   }, []);
 
+  const handleVolumeChange = useCallback((shortName, value) => {
+    setVolumes(prev => ({ ...prev, [shortName]: value }));
+  }, []);
+
   const handleSelectChord = useCallback((intervals) => {
     setSelectedIntervals(intervals);
     setTimeout(() => {
@@ -82,6 +87,10 @@ export default function App() {
     });
   }, [rootFrequency, selectedIntervals]);
 
+  const selectedVolumes = useMemo(() => {
+    return selectedIntervals.map(name => volumes[name] ?? 1);
+  }, [selectedIntervals, volumes]);
+
   const consonanceScore = useMemo(() => {
     return calculateConsonanceScore(selectedFrequencies);
   }, [selectedFrequencies]);
@@ -91,13 +100,13 @@ export default function App() {
       stopAllTones();
       setIsPlaying(false);
     } else {
-      playMultipleTones(selectedFrequencies);
+      playMultipleTones(selectedFrequencies, selectedVolumes);
       setIsPlaying(true);
     }
   };
 
   const handlePlayForDuration = () => {
-    playChordForDuration(selectedFrequencies, 3000);
+    playChordForDuration(selectedFrequencies, 3000, selectedVolumes);
     setIsPlaying(true);
     setTimeout(() => setIsPlaying(false), 3000);
   };
@@ -194,6 +203,8 @@ export default function App() {
           rootFrequency={rootFrequency}
           selectedIntervals={selectedIntervals}
           onToggleInterval={handleToggleInterval}
+          volumes={volumes}
+          onVolumeChange={handleVolumeChange}
         />
       </section>
 
@@ -206,9 +217,10 @@ export default function App() {
             {selectedIntervals.map(name => {
               const interval = getIntervalByName(name);
               const freq = getFrequencyForInterval(rootFrequency, interval);
+              const vol = volumes[name] ?? 1;
               return (
                 <span key={name} className="selected-tag">
-                  {name} ({freq.toFixed(1)} Hz)
+                  {name} ({freq.toFixed(1)} Hz{vol < 1 ? ` @ ${Math.round(vol * 100)}%` : ''})
                 </span>
               );
             })}
@@ -278,6 +290,7 @@ export default function App() {
           height={280}
           width={Math.max(800, cycles * 200)}
           cycles={cycles}
+          volumes={selectedVolumes}
         />
       </section>
 

@@ -58,6 +58,32 @@ export default function EducationalContent() {
           </section>
 
           <section className="edu-section">
+            <h2>Amplitude & Volume</h2>
+            <p>
+              While frequency determines <strong>pitch</strong>, a wave's <strong>amplitude</strong> determines
+              its <strong>loudness</strong>. Amplitude is the height of the wave — how far the air pressure swings
+              above and below its resting point. A taller wave pushes your eardrum harder, so you hear a louder sound.
+            </p>
+            <p>
+              Amplitude is measured in different ways depending on context. In physics, it's often expressed
+              as <strong>pressure</strong> (pascals). In audio, we use <strong>decibels (dB)</strong> — a logarithmic
+              scale where every +10 dB sounds roughly <em>twice as loud</em> to our ears.
+            </p>
+            <p>
+              When multiple notes play together, their amplitudes <strong>add up</strong>. If two waves peak at the same
+              moment, they reinforce each other (<strong>constructive interference</strong>), creating a louder combined
+              wave. If one peaks while the other dips, they cancel out (<strong>destructive interference</strong>),
+              making the combined wave quieter.
+            </p>
+            <p>
+              <strong>Try it:</strong> Use the <strong>Volume</strong> sliders in the Interval Table to adjust individual
+              note amplitudes. Watch how the wave height changes in the visualization — a note at 50% volume draws a wave
+              at half the height. Turn on "Show combined wave" to see how different amplitude balances change the combined
+              waveform shape.
+            </p>
+          </section>
+
+          <section className="edu-section">
             <h2>Why Simple Ratios Sound Good</h2>
             <p>
               When two frequencies have a simple ratio like 3:2, their wave peaks <strong>regularly coincide</strong>.

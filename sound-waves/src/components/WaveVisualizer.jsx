@@ -49,7 +49,7 @@ function waveformValue(type, phase) {
   }
 }
 
-function drawWave(ctx, width, height, frequency, baseFreq, color, alpha, waveType, cycles) {
+function drawWave(ctx, width, height, frequency, baseFreq, color, alpha, waveType, cycles, volume = 1) {
   ctx.beginPath();
   ctx.strokeStyle = color;
   ctx.globalAlpha = alpha;
@@ -59,7 +59,7 @@ function drawWave(ctx, width, height, frequency, baseFreq, color, alpha, waveTyp
   const totalTime = cyclesOfRoot / baseFreq;
 
   const centerY = height / 2;
-  const amplitude = height * 0.38;
+  const amplitude = height * 0.38 * volume;
 
   for (let x = 0; x < width; x++) {
     const t = (x / width) * totalTime;
@@ -76,7 +76,7 @@ function drawWave(ctx, width, height, frequency, baseFreq, color, alpha, waveTyp
   ctx.globalAlpha = 1;
 }
 
-function drawCombinedWave(ctx, width, height, frequencies, baseFreq, waveType, cycles) {
+function drawCombinedWave(ctx, width, height, frequencies, baseFreq, waveType, cycles, volumes = null) {
   if (frequencies.length === 0) return;
 
   ctx.beginPath();
@@ -92,9 +92,10 @@ function drawCombinedWave(ctx, width, height, frequencies, baseFreq, waveType, c
   for (let x = 0; x < width; x++) {
     const t = (x / width) * totalTime;
     let sum = 0;
-    for (const freq of frequencies) {
-      const phase = 2 * Math.PI * freq * t;
-      sum += waveformValue(waveType, phase);
+    for (let i = 0; i < frequencies.length; i++) {
+      const phase = 2 * Math.PI * frequencies[i] * t;
+      const vol = volumes ? (volumes[i] ?? 1) : 1;
+      sum += waveformValue(waveType, phase) * vol;
     }
     const y = centerY - amplitude * sum;
     if (x === 0) {
@@ -161,7 +162,7 @@ function drawGrid(ctx, width, height) {
   }
 }
 
-export default function WaveVisualizer({ frequencies, rootFrequency, showCombined = false, waveform = 'sine', height = 280, width = 3200, cycles = 16 }) {
+export default function WaveVisualizer({ frequencies, rootFrequency, showCombined = false, waveform = 'sine', height = 280, width = 3200, cycles = 16, volumes = null }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -184,13 +185,14 @@ export default function WaveVisualizer({ frequencies, rootFrequency, showCombine
 
     const individualAlpha = showCombined ? 0.4 : 0.85;
     frequencies.forEach((freq, i) => {
-      drawWave(ctx, w, h, freq, rootFrequency, COLORS[i % COLORS.length], individualAlpha, waveform, cycles);
+      const vol = volumes ? (volumes[i] ?? 1) : 1;
+      drawWave(ctx, w, h, freq, rootFrequency, COLORS[i % COLORS.length], individualAlpha, waveform, cycles, vol);
     });
 
     if (showCombined) {
-      drawCombinedWave(ctx, w, h, frequencies, rootFrequency, waveform, cycles);
+      drawCombinedWave(ctx, w, h, frequencies, rootFrequency, waveform, cycles, volumes);
     }
-  }, [frequencies, rootFrequency, showCombined, waveform, height, width, cycles]);
+  }, [frequencies, rootFrequency, showCombined, waveform, height, width, cycles, volumes]);
 
   return (
     <div style={{ overflowX: 'auto', borderRadius: '8px' }}>

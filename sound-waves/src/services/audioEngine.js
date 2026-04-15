@@ -33,7 +33,7 @@ export function getAudioContext() {
   return audioContext;
 }
 
-export function playTone(frequency, id = null) {
+export function playTone(frequency, id = null, volume = 1) {
   const ctx = getAudioContext();
   const key = id || frequency.toString();
 
@@ -48,7 +48,7 @@ export function playTone(frequency, id = null) {
 
   // Lower gain for harmonically rich waveforms to prevent clipping
   const gainLevels = { sine: 0.15, triangle: 0.12, sawtooth: 0.07, square: 0.06 };
-  const gain = gainLevels[currentWaveform] || 0.15;
+  const gain = (gainLevels[currentWaveform] || 0.15) * volume;
 
   gainNode.gain.setValueAtTime(0, ctx.currentTime);
   gainNode.gain.linearRampToValueAtTime(gain, ctx.currentTime + 0.05);
@@ -77,10 +77,11 @@ export function stopAllTones() {
   }
 }
 
-export function playMultipleTones(frequencies) {
+export function playMultipleTones(frequencies, volumes = null) {
   stopAllTones();
   frequencies.forEach((freq, i) => {
-    playTone(freq, `chord-${i}`);
+    const vol = volumes ? (volumes[i] ?? 1) : 1;
+    playTone(freq, `chord-${i}`, vol);
   });
 }
 
@@ -90,7 +91,7 @@ export function playToneForDuration(frequency, durationMs = 2000, id = null) {
   return key;
 }
 
-export function playChordForDuration(frequencies, durationMs = 2000) {
-  playMultipleTones(frequencies);
+export function playChordForDuration(frequencies, durationMs = 2000, volumes = null) {
+  playMultipleTones(frequencies, volumes);
   setTimeout(() => stopAllTones(), durationMs);
 }

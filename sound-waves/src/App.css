@@ -470,6 +470,30 @@
   color: #0d1117;
 }
 
+/* Volume slider in interval table */
+.volume-cell {
+  min-width: 80px;
+}
+
+.volume-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.volume-slider {
+  width: 55px;
+  accent-color: #4fc3f7;
+  cursor: pointer;
+}
+
+.volume-pct {
+  font-size: 0.7rem;
+  color: #8b949e;
+  font-family: 'Consolas', monospace;
+  min-width: 28px;
+}
+
 .play-cell {
   display: flex;
   gap: 4px;
@@ -796,6 +820,17 @@
     padding: 6px 8px;
   }
 
+  /* Hide Decimal and Volume columns on tablet */
+  .interval-table th:nth-child(4),
+  .interval-table td:nth-child(4) {
+    display: none;
+  }
+
+  .interval-table th:nth-child(7),
+  .interval-table td:nth-child(7) {
+    display: none;
+  }
+
   .viz-controls {
     flex-direction: column;
     align-items: stretch;
@@ -892,6 +927,11 @@
 
   .interval-table th:nth-child(6),
   .interval-table td:nth-child(6) {
+    display: none;
+  }
+
+  .interval-table th:nth-child(7),
+  .interval-table td:nth-child(7) {
     display: none;
   }
 
