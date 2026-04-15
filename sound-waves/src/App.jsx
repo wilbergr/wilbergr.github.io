@@ -247,6 +247,15 @@ export default function App() {
           <div className="cycles-control">
             <label>
               Cycles: <strong>{cycles}</strong>
+              <span className="info-tooltip">
+                <span className="info-icon">?</span>
+                <span className="info-popup">
+                  A <strong>cycle</strong> is one complete repetition of the root frequency's wave — from peak to peak.
+                  More cycles let you see longer patterns of how waves align (consonance) or drift apart (dissonance).
+                  At low cycle counts you see individual wave shapes clearly; at high counts you can observe large-scale
+                  interference patterns.
+                </span>
+              </span>
               <input
                 type="range"
                 min="1"
