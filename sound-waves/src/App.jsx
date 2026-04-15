@@ -252,6 +252,7 @@ export default function App() {
           showCombined={showCombined}
           waveform={waveform}
           height={280}
+          width={3200}
         />
       </section>
 

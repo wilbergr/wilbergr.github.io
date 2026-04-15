@@ -55,7 +55,7 @@ function drawWave(ctx, width, height, frequency, baseFreq, color, alpha, waveTyp
   ctx.globalAlpha = alpha;
   ctx.lineWidth = 2.5;
 
-  const cyclesOfRoot = 4;
+  const cyclesOfRoot = 16;
   const totalTime = cyclesOfRoot / baseFreq;
 
   const centerY = height / 2;
@@ -84,7 +84,7 @@ function drawCombinedWave(ctx, width, height, frequencies, baseFreq, waveType) {
   ctx.lineWidth = 3;
   ctx.globalAlpha = 0.9;
 
-  const cyclesOfRoot = 4;
+  const cyclesOfRoot = 16;
   const totalTime = cyclesOfRoot / baseFreq;
   const centerY = height / 2;
   const amplitude = height * 0.38 / frequencies.length;
@@ -111,7 +111,7 @@ function drawCombinedWave(ctx, width, height, frequencies, baseFreq, waveType) {
 function drawAlignmentMarkers(ctx, width, height, frequencies, baseFreq, waveType) {
   if (frequencies.length < 2) return;
 
-  const cyclesOfRoot = 4;
+  const cyclesOfRoot = 16;
   const totalTime = cyclesOfRoot / baseFreq;
   const amplitude = height * 0.38;
   const centerY = height / 2;
@@ -161,7 +161,7 @@ function drawGrid(ctx, width, height) {
   }
 }
 
-export default function WaveVisualizer({ frequencies, rootFrequency, showCombined = false, waveform = 'sine', height = 280 }) {
+export default function WaveVisualizer({ frequencies, rootFrequency, showCombined = false, waveform = 'sine', height = 280, width = 3200 }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -169,14 +169,14 @@ export default function WaveVisualizer({ frequencies, rootFrequency, showCombine
     if (!canvas) return;
 
     const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
+    const drawWidth = Math.max(width, canvas.parentElement.clientWidth);
+    canvas.width = drawWidth * dpr;
     canvas.height = height * dpr;
 
     const ctx = canvas.getContext('2d');
     ctx.scale(dpr, dpr);
 
-    const w = rect.width;
+    const w = drawWidth;
     const h = height;
 
     drawGrid(ctx, w, h);
@@ -190,13 +190,15 @@ export default function WaveVisualizer({ frequencies, rootFrequency, showCombine
     if (showCombined) {
       drawCombinedWave(ctx, w, h, frequencies, rootFrequency, waveform);
     }
-  }, [frequencies, rootFrequency, showCombined, waveform, height]);
+  }, [frequencies, rootFrequency, showCombined, waveform, height, width]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      style={{ width: '100%', height: `${height}px`, borderRadius: '8px', display: 'block' }}
-    />
+    <div style={{ overflowX: 'auto', borderRadius: '8px' }}>
+      <canvas
+        ref={canvasRef}
+        style={{ width: `${width}px`, minWidth: '100%', height: `${height}px`, borderRadius: '8px', display: 'block' }}
+      />
+    </div>
   );
 }
 
