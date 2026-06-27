@@ -7,7 +7,22 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container">
+    <div id="login-gate" class="login-gate">
+      <div class="login-box">
+        <div class="login-icon">🚫</div>
+        <h1>ACCESS RESTRICTED</h1>
+        <p class="steve-warning">This page is password-protected to keep out <strong>one specific person</strong>.</p>
+        <p class="steve-callout">Steve, if that's you — stop trying. You know you're not allowed in here. Go away.</p>
+        <p class="steve-sub">Everyone else is welcome. Just enter the password.</p>
+        <form id="login-form" onsubmit="return handleLogin(event)">
+          <input type="password" id="password-input" class="password-input" placeholder="Password" autocomplete="off" autofocus />
+          <button type="submit" class="login-btn">Enter</button>
+        </form>
+        <p id="login-error" class="login-error" hidden>Nice try, Steve.</p>
+      </div>
+    </div>
+
+    <div id="main-content" class="container" hidden>
       <header>
         <h1>Welcome to Wilbergr's Web Apps</h1>
         <p class="subtitle">A collection of web applications and experiments</p>
@@ -21,6 +36,27 @@
           <a href="/birthday/" class="app-link">Launch App</a>
         </div>
 
+        <div class="app-card">
+          <div class="app-icon">🎹</div>
+          <h2>Piano Learning App</h2>
+          <p>Interactive 88-key piano with realistic sound, music notation, and performance tracking. Features 9 songs across 3 difficulty levels with Demo, Practice, and Challenge modes.</p>
+          <a href="/piano-app/" class="app-link">Launch App</a>
+        </div>
+
+        <div class="app-card">
+          <div class="app-icon">♞</div>
+          <h2>Chess Trainer</h2>
+          <p>Master chess coordinates and notation with interactive challenges. Practice identifying squares (A1-H8) and reading algebraic notation (Nf3, Bxe5, O-O) with timed challenges.</p>
+          <a href="/chess-app/" class="app-link">Launch App</a>
+        </div>
+
+        <div class="app-card">
+          <div class="app-icon">🔊</div>
+          <h2>Sound Waves & Harmony</h2>
+          <p>Explore how frequency ratios create musical harmony. Visualize sound waves, hear intervals and chords, and learn why simple ratios sound consonant.</p>
+          <a href="/sound-waves/" class="app-link">Launch App</a>
+        </div>
+
         <div class="app-card coming-soon">
           <div class="app-icon">🚀</div>
           <h2>More Apps Coming Soon</h2>
@@ -32,5 +68,42 @@
         <p>Built with ❤️ | <a href="https://github.com/wilbergr/wilbergr.github.io" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
       </footer>
     </div>
+
+    <script>
+      // SHA-256 hash of "password"
+      const HASH = '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8';
+
+      async function sha256(text) {
+        const data = new TextEncoder().encode(text);
+        const hash = await crypto.subtle.digest('SHA-256', data);
+        return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+      }
+
+      function unlock() {
+        document.getElementById('login-gate').hidden = true;
+        document.getElementById('main-content').hidden = false;
+        sessionStorage.setItem('authed', '1');
+      }
+
+      async function handleLogin(e) {
+        e.preventDefault();
+        const input = document.getElementById('password-input').value;
+        const hash = await sha256(input);
+        if (hash === HASH) {
+          unlock();
+        } else {
+          const err = document.getElementById('login-error');
+          err.hidden = false;
+          document.getElementById('password-input').value = '';
+          document.getElementById('password-input').focus();
+        }
+        return false;
+      }
+
+      // Stay unlocked for the browser session
+      if (sessionStorage.getItem('authed') === '1') {
+        unlock();
+      }
+    </script>
   </body>
 </html>
