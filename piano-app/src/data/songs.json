@@ -98,6 +98,17 @@
       "unlocked": true,
       "preview": "Brahms' energetic dance",
       "description": "Fast-paced and dramatic piece with rapid note sequences and dynamic contrasts. A challenging test of technique!"
+    },
+    {
+      "id": "hot-cross-buns",
+      "title": "Hot Cross Buns",
+      "difficulty": "beginner",
+      "order": 10,
+      "midiFile": "hot-cross-buns",
+      "triviaQuestionId": "q10",
+      "unlocked": true,
+      "preview": "3-note beginner starter",
+      "description": "A classic nursery rhyme built on just three notes — the perfect first song for new pianists."
     }
   ]
 }

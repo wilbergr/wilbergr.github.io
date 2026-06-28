@@ -764,6 +764,47 @@ export function createHungarianDanceSong() {
 }
 
 /**
+ * Create Hot Cross Buns song
+ * @returns {Object} Song data for Hot Cross Buns
+ */
+export function createHotCrossBunsSong() {
+  const notes = [
+    // Hot cross buns
+    { note: 'E4', midi: 64, time: 0.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'D4', midi: 62, time: 0.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 1.0,  duration: 1.0, velocity: 0.8 },
+    // Hot cross buns
+    { note: 'E4', midi: 64, time: 2.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'D4', midi: 62, time: 2.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 3.0,  duration: 1.0, velocity: 0.8 },
+    // One a penny, two a penny
+    { note: 'C4', midi: 60, time: 4.0,  duration: 0.25, velocity: 0.75 },
+    { note: 'C4', midi: 60, time: 4.25, duration: 0.25, velocity: 0.75 },
+    { note: 'C4', midi: 60, time: 4.5,  duration: 0.25, velocity: 0.75 },
+    { note: 'C4', midi: 60, time: 4.75, duration: 0.25, velocity: 0.75 },
+    { note: 'D4', midi: 62, time: 5.0,  duration: 0.25, velocity: 0.75 },
+    { note: 'D4', midi: 62, time: 5.25, duration: 0.25, velocity: 0.75 },
+    { note: 'D4', midi: 62, time: 5.5,  duration: 0.25, velocity: 0.75 },
+    { note: 'D4', midi: 62, time: 5.75, duration: 0.25, velocity: 0.75 },
+    // Hot cross buns
+    { note: 'E4', midi: 64, time: 6.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'D4', midi: 62, time: 6.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 7.0,  duration: 1.0, velocity: 0.8 },
+  ];
+
+  return {
+    name: 'Hot Cross Buns',
+    duration: 8.0,
+    tempo: 120,
+    timeSignature: { timeSignature: [4, 4] },
+    tracks: 1,
+    notes,
+    totalNotes: notes.length,
+    difficulty: 'beginner',
+  };
+}
+
+/**
  * Get notes that should be playing at a specific time
  * @param {Array} notes - Array of note objects
  * @param {number} currentTime - Current playback time in seconds
