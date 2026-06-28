@@ -871,6 +871,54 @@ export function createYankeeDoodleSong() {
 }
 
 /**
+ * Create London Bridge song
+ * @returns {Object} Song data for London Bridge
+ */
+export function createLondonBridgeSong() {
+  const notes = [
+    // Lon-don Bridge is fall-ing down
+    { note: 'G4', midi: 67, time: 0.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'A4', midi: 69, time: 0.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 1.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 1.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 2.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 2.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 3.0,  duration: 1.0, velocity: 0.8 },
+    // Fall-ing down, fall-ing down
+    { note: 'D4', midi: 62, time: 4.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 4.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 5.0,  duration: 1.0, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 6.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 6.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 7.0,  duration: 1.0, velocity: 0.8 },
+    // Lon-don Bridge is fall-ing down
+    { note: 'G4', midi: 67, time: 8.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'A4', midi: 69, time: 8.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 9.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 9.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 10.0, duration: 0.5, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 10.5, duration: 0.5, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 11.0, duration: 1.0, velocity: 0.8 },
+    // My fair la-dy
+    { note: 'D4', midi: 62, time: 12.0, duration: 1.0, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 13.0, duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 13.5, duration: 0.5, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 14.0, duration: 2.0, velocity: 0.8 },
+  ];
+
+  return {
+    name: 'London Bridge',
+    duration: 16.0,
+    tempo: 120,
+    timeSignature: { timeSignature: [4, 4] },
+    tracks: 1,
+    notes,
+    totalNotes: notes.length,
+    difficulty: 'beginner',
+  };
+}
+
+/**
  * Get notes that should be playing at a specific time
  * @param {Array} notes - Array of note objects
  * @param {number} currentTime - Current playback time in seconds

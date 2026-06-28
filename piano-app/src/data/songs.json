@@ -120,6 +120,17 @@
       "unlocked": true,
       "preview": "Lively American folk tune",
       "description": "An upbeat patriotic melody with a fun chorus — great for building finger speed and rhythm."
+    },
+    {
+      "id": "london-bridge",
+      "title": "London Bridge",
+      "difficulty": "beginner",
+      "order": 12,
+      "midiFile": "london-bridge",
+      "triviaQuestionId": "q12",
+      "unlocked": true,
+      "preview": "Classic children's melody",
+      "description": "A gentle stepwise melody ideal for beginners, introducing small skips and a satisfying phrase structure."
     }
   ]
 }
