@@ -12,6 +12,7 @@ import {
   createMoonlightSonataSong,
   createHungarianDanceSong,
   createHotCrossBunsSong,
+  createYankeeDoodleSong,
   getNotesAtTime
 } from '../../services/midiParser';
 import audioService from '../../services/audioService';
@@ -254,6 +255,8 @@ function SongPlayer({ onHighlightKeys, onSongComplete, onUserKeyPress, onKeyFeed
         songData = createHungarianDanceSong();
       } else if (song.midiFile === 'hot-cross-buns') {
         songData = createHotCrossBunsSong();
+      } else if (song.midiFile === 'yankee-doodle') {
+        songData = createYankeeDoodleSong();
       } else {
         // Load actual MIDI file
         songData = await parseMidiFile(song.midiFile);

@@ -805,6 +805,72 @@ export function createHotCrossBunsSong() {
 }
 
 /**
+ * Create Yankee Doodle song
+ * @returns {Object} Song data for Yankee Doodle
+ */
+export function createYankeeDoodleSong() {
+  const notes = [
+    // Yan-kee Doo-dle went to town
+    { note: 'C4', midi: 60, time: 0.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 0.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'D4', midi: 62, time: 1.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 1.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 2.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 2.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'D4', midi: 62, time: 3.0,  duration: 1.0, velocity: 0.8 },
+    // A-ri-ding on a po-ny
+    { note: 'C4', midi: 60, time: 4.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 4.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'D4', midi: 62, time: 5.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 5.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 6.0,  duration: 1.0, velocity: 0.8 },
+    // Stuck a fea-ther in his cap
+    { note: 'E4', midi: 64, time: 7.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 7.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 8.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 8.5,  duration: 1.0, velocity: 0.8 },
+    // And called it mac-a-ro-ni
+    { note: 'G4', midi: 67, time: 9.5,  duration: 0.25, velocity: 0.75 },
+    { note: 'F4', midi: 65, time: 9.75, duration: 0.25, velocity: 0.75 },
+    { note: 'E4', midi: 64, time: 10.0, duration: 0.5, velocity: 0.8 },
+    { note: 'D4', midi: 62, time: 10.5, duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 11.0, duration: 1.0, velocity: 0.8 },
+    // Chorus: Yan-kee Doo-dle keep it up
+    { note: 'G4', midi: 67, time: 12.0, duration: 0.5, velocity: 0.85 },
+    { note: 'F4', midi: 65, time: 12.5, duration: 0.5, velocity: 0.85 },
+    { note: 'E4', midi: 64, time: 13.0, duration: 0.5, velocity: 0.85 },
+    { note: 'D4', midi: 62, time: 13.5, duration: 0.5, velocity: 0.85 },
+    // Yan-kee Doo-dle dan-dy
+    { note: 'C4', midi: 60, time: 14.0, duration: 0.5, velocity: 0.85 },
+    { note: 'E4', midi: 64, time: 14.5, duration: 0.5, velocity: 0.85 },
+    { note: 'G4', midi: 67, time: 15.0, duration: 0.5, velocity: 0.85 },
+    { note: 'G4', midi: 67, time: 15.5, duration: 0.5, velocity: 0.85 },
+    // Mind the mu-sic and the step
+    { note: 'G4', midi: 67, time: 16.0, duration: 0.5, velocity: 0.85 },
+    { note: 'F4', midi: 65, time: 16.5, duration: 0.5, velocity: 0.85 },
+    { note: 'E4', midi: 64, time: 17.0, duration: 0.5, velocity: 0.85 },
+    { note: 'D4', midi: 62, time: 17.5, duration: 0.5, velocity: 0.85 },
+    // And with the girls be han-dy
+    { note: 'E4', midi: 64, time: 18.0, duration: 0.5, velocity: 0.85 },
+    { note: 'E4', midi: 64, time: 18.5, duration: 0.5, velocity: 0.85 },
+    { note: 'D4', midi: 62, time: 19.0, duration: 0.5, velocity: 0.85 },
+    { note: 'C4', midi: 60, time: 19.5, duration: 0.5, velocity: 0.85 },
+    { note: 'C4', midi: 60, time: 20.0, duration: 2.0, velocity: 0.8 },
+  ];
+
+  return {
+    name: 'Yankee Doodle',
+    duration: 22.0,
+    tempo: 120,
+    timeSignature: { timeSignature: [4, 4] },
+    tracks: 1,
+    notes,
+    totalNotes: notes.length,
+    difficulty: 'beginner',
+  };
+}
+
+/**
  * Get notes that should be playing at a specific time
  * @param {Array} notes - Array of note objects
  * @param {number} currentTime - Current playback time in seconds

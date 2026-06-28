@@ -109,6 +109,17 @@
       "unlocked": true,
       "preview": "3-note beginner starter",
       "description": "A classic nursery rhyme built on just three notes — the perfect first song for new pianists."
+    },
+    {
+      "id": "yankee-doodle",
+      "title": "Yankee Doodle",
+      "difficulty": "beginner",
+      "order": 11,
+      "midiFile": "yankee-doodle",
+      "triviaQuestionId": "q11",
+      "unlocked": true,
+      "preview": "Lively American folk tune",
+      "description": "An upbeat patriotic melody with a fun chorus — great for building finger speed and rhythm."
     }
   ]
 }
