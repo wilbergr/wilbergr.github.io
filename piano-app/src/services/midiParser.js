@@ -1276,6 +1276,82 @@ export function createDannyBoySong() {
 }
 
 /**
+ * Create Simple Gifts song (Shaker hymn)
+ * @returns {Object} Song data for Simple Gifts
+ */
+export function createSimpleGiftsSong() {
+  // 4/4 time at 100 BPM: q=0.6s, e=0.3s, h=1.2s, dq=0.9s
+  const notes = [
+    // 'Tis the gift to be simple
+    { note: 'C4', midi: 60, time: 0.0,  duration: 0.6, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 0.6,  duration: 0.6, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 1.2,  duration: 0.6, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 1.8,  duration: 0.6, velocity: 0.8 },
+    // 'tis the gift to be free
+    { note: 'G4', midi: 67, time: 2.4,  duration: 0.6, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 3.0,  duration: 0.6, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 3.6,  duration: 1.2, velocity: 0.85 },
+    // 'Tis the gift to come down where we ought to be
+    { note: 'A4', midi: 69, time: 4.8,  duration: 0.6, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 5.4,  duration: 0.6, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 6.0,  duration: 0.6, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 6.6,  duration: 0.6, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 7.2,  duration: 0.6, velocity: 0.8 },
+    { note: 'A4', midi: 69, time: 7.8,  duration: 0.6, velocity: 0.8 },
+    { note: 'A4', midi: 69, time: 8.4,  duration: 0.6, velocity: 0.8 },
+    { note: 'A4', midi: 69, time: 9.0,  duration: 0.6, velocity: 0.8 },
+    // And when we find ourselves in the place just right
+    { note: 'C5', midi: 72, time: 9.6,  duration: 0.6, velocity: 0.85 },
+    { note: 'C5', midi: 72, time: 10.2, duration: 0.6, velocity: 0.85 },
+    { note: 'A4', midi: 69, time: 10.8, duration: 0.6, velocity: 0.8  },
+    { note: 'G4', midi: 67, time: 11.4, duration: 0.6, velocity: 0.8  },
+    { note: 'F4', midi: 65, time: 12.0, duration: 0.6, velocity: 0.8  },
+    { note: 'G4', midi: 67, time: 12.6, duration: 0.6, velocity: 0.8  },
+    // 'twill be in the valley of love and delight
+    { note: 'A4', midi: 69, time: 13.2, duration: 0.6, velocity: 0.8  },
+    { note: 'G4', midi: 67, time: 13.8, duration: 0.6, velocity: 0.8  },
+    { note: 'F4', midi: 65, time: 14.4, duration: 1.2, velocity: 0.85 },
+    // When true simplicity is gain'd
+    { note: 'F4', midi: 65, time: 15.6, duration: 0.6, velocity: 0.8  },
+    { note: 'F4', midi: 65, time: 16.2, duration: 0.6, velocity: 0.8  },
+    { note: 'A4', midi: 69, time: 16.8, duration: 0.6, velocity: 0.8  },
+    { note: 'A4', midi: 69, time: 17.4, duration: 0.6, velocity: 0.8  },
+    { note: 'C5', midi: 72, time: 18.0, duration: 0.6, velocity: 0.85 },
+    { note: 'A4', midi: 69, time: 18.6, duration: 0.6, velocity: 0.8  },
+    { note: 'A4', midi: 69, time: 19.2, duration: 1.2, velocity: 0.85 },
+    // To bow and to bend we shan't be asham'd
+    { note: 'G4', midi: 67, time: 20.4, duration: 0.6, velocity: 0.8  },
+    { note: 'F4', midi: 65, time: 21.0, duration: 0.6, velocity: 0.8  },
+    { note: 'G4', midi: 67, time: 21.6, duration: 0.6, velocity: 0.8  },
+    { note: 'A4', midi: 69, time: 22.2, duration: 0.6, velocity: 0.8  },
+    { note: 'C5', midi: 72, time: 22.8, duration: 0.6, velocity: 0.85 },
+    { note: 'C5', midi: 72, time: 23.4, duration: 0.6, velocity: 0.85 },
+    // To turn, turn will be our delight
+    { note: 'A4', midi: 69, time: 24.0, duration: 0.6, velocity: 0.8  },
+    { note: 'G4', midi: 67, time: 24.6, duration: 0.6, velocity: 0.8  },
+    { note: 'F4', midi: 65, time: 25.2, duration: 0.6, velocity: 0.8  },
+    { note: 'G4', midi: 67, time: 25.8, duration: 0.6, velocity: 0.8  },
+    // Till by turning, turning we come 'round right
+    { note: 'A4', midi: 69, time: 26.4, duration: 0.6, velocity: 0.8  },
+    { note: 'G4', midi: 67, time: 27.0, duration: 0.6, velocity: 0.8  },
+    { note: 'F4', midi: 65, time: 27.6, duration: 1.2, velocity: 0.85 },
+    { note: 'C4', midi: 60, time: 28.8, duration: 0.6, velocity: 0.8  },
+    { note: 'F4', midi: 65, time: 29.4, duration: 2.4, velocity: 0.9  }, // final held
+  ];
+
+  return {
+    name: 'Simple Gifts',
+    duration: 31.8,
+    tempo: 100,
+    timeSignature: { timeSignature: [4, 4] },
+    tracks: 1,
+    notes,
+    totalNotes: notes.length,
+    difficulty: 'intermediate',
+  };
+}
+
+/**
  * Get notes that should be playing at a specific time
  * @param {Array} notes - Array of note objects
  * @param {number} currentTime - Current playback time in seconds

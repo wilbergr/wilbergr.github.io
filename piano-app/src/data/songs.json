@@ -197,6 +197,17 @@
       "unlocked": true,
       "preview": "Irish folk melody, slow and lyrical",
       "description": "The Londonderry Air is one of the most beautiful melodies in the folk tradition — its long, arching phrases reward expressive phrasing."
+    },
+    {
+      "id": "simple-gifts",
+      "title": "Simple Gifts",
+      "difficulty": "intermediate",
+      "order": 19,
+      "midiFile": "simple-gifts",
+      "triviaQuestionId": "q19",
+      "unlocked": true,
+      "preview": "Shaker hymn, Copland's Appalachian Spring",
+      "description": "A beloved Shaker melody made famous by Copland — its stepwise motion and clear phrasing make it deeply satisfying to play."
     }
   ]
 }
