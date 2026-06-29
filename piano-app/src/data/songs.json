@@ -230,6 +230,17 @@
       "unlocked": true,
       "preview": "Mozart's Rondo alla Turca, K. 331",
       "description": "Mozart's energetic march features rapid repeated notes, quick runs, and a brilliant A major section that demands crisp articulation."
+    },
+    {
+      "id": "chopin-nocturne",
+      "title": "Nocturne Op. 9 No. 2",
+      "difficulty": "advanced",
+      "order": 22,
+      "midiFile": "chopin-nocturne",
+      "triviaQuestionId": "q22",
+      "unlocked": true,
+      "preview": "Chopin's famous Eb major nocturne",
+      "description": "The opening of Chopin's most beloved nocturne — a singing, ornamented melody in Eb major that requires sensitivity and tonal control."
     }
   ]
 }

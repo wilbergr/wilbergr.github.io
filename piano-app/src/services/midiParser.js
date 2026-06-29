@@ -1518,6 +1518,79 @@ export function createTurkishMarchSong() {
 }
 
 /**
+ * Create Chopin Nocturne Op. 9 No. 2 — opening phrase
+ * @returns {Object} Song data for Chopin Nocturne
+ */
+export function createChopinNocturneSong() {
+  // 12/8 time at 66 BPM: dotted quarter = 60/66 ≈ 0.909s, eighth = 0.303s
+  // Using e=0.30s, dq=0.91s, q=0.61s
+  const e = 0.30;
+
+  const notes = [
+    // Phrase 1 — Eb major, lyrical opening
+    // B4 (starts, flowing ornamental melody)
+    { note: 'Bb4', midi: 70, time: 0.0,  duration: 0.91, velocity: 0.72 },
+    { note: 'C5',  midi: 72, time: 0.91, duration: 0.61, velocity: 0.70 },
+    { note: 'Bb4', midi: 70, time: 1.52, duration: 0.30, velocity: 0.68 },
+    { note: 'Ab4', midi: 68, time: 1.82, duration: 0.30, velocity: 0.68 },
+    { note: 'G4',  midi: 67, time: 2.12, duration: 0.61, velocity: 0.70 },
+    { note: 'Ab4', midi: 68, time: 2.73, duration: 0.91, velocity: 0.72 },
+    { note: 'G4',  midi: 67, time: 3.64, duration: 0.61, velocity: 0.70 },
+    { note: 'F4',  midi: 65, time: 4.25, duration: 0.30, velocity: 0.68 },
+    { note: 'Eb4', midi: 63, time: 4.55, duration: 0.30, velocity: 0.68 },
+    { note: 'F4',  midi: 65, time: 4.85, duration: 1.82, velocity: 0.72 }, // held
+
+    // Phrase 2 — ascending answer
+    { note: 'F4',  midi: 65, time: 6.67, duration: 0.91, velocity: 0.72 },
+    { note: 'G4',  midi: 67, time: 7.58, duration: 0.61, velocity: 0.70 },
+    { note: 'Ab4', midi: 68, time: 8.19, duration: 0.30, velocity: 0.68 },
+    { note: 'Bb4', midi: 70, time: 8.49, duration: 0.30, velocity: 0.70 },
+    { note: 'C5',  midi: 72, time: 8.79, duration: 0.61, velocity: 0.72 },
+    { note: 'Db5', midi: 73, time: 9.40, duration: 0.91, velocity: 0.75 },
+    { note: 'C5',  midi: 72, time: 10.31, duration: 0.61, velocity: 0.72 },
+    { note: 'Bb4', midi: 70, time: 10.92, duration: 0.30, velocity: 0.70 },
+    { note: 'Ab4', midi: 68, time: 11.22, duration: 0.30, velocity: 0.68 },
+    { note: 'Bb4', midi: 70, time: 11.52, duration: 1.82, velocity: 0.72 }, // held
+
+    // Phrase 3 — ornamental development
+    { note: 'Bb4', midi: 70, time: 13.34, duration: 0.61, velocity: 0.72 },
+    { note: 'C5',  midi: 72, time: 13.95, duration: 0.30, velocity: 0.70 },
+    { note: 'Db5', midi: 73, time: 14.25, duration: 0.30, velocity: 0.72 },
+    { note: 'Eb5', midi: 75, time: 14.55, duration: 0.61, velocity: 0.75 },
+    { note: 'F5',  midi: 77, time: 15.16, duration: 0.91, velocity: 0.78 },
+    { note: 'Eb5', midi: 75, time: 16.07, duration: 0.61, velocity: 0.75 },
+    { note: 'Db5', midi: 73, time: 16.68, duration: 0.30, velocity: 0.72 },
+    { note: 'C5',  midi: 72, time: 16.98, duration: 0.30, velocity: 0.70 },
+    { note: 'Db5', midi: 73, time: 17.28, duration: 0.61, velocity: 0.72 },
+    { note: 'C5',  midi: 72, time: 17.89, duration: 0.61, velocity: 0.70 },
+    { note: 'Bb4', midi: 70, time: 18.50, duration: 0.61, velocity: 0.70 },
+    { note: 'Ab4', midi: 68, time: 19.11, duration: 1.82, velocity: 0.72 }, // held
+
+    // Phrase 4 — closing cadence
+    { note: 'Bb4', midi: 70, time: 20.93, duration: 0.91, velocity: 0.72 },
+    { note: 'G4',  midi: 67, time: 21.84, duration: 0.61, velocity: 0.70 },
+    { note: 'Ab4', midi: 68, time: 22.45, duration: 0.61, velocity: 0.70 },
+    { note: 'F4',  midi: 65, time: 23.06, duration: 0.61, velocity: 0.70 },
+    { note: 'Eb4', midi: 63, time: 23.67, duration: 0.91, velocity: 0.72 },
+    { note: 'F4',  midi: 65, time: 24.58, duration: 0.61, velocity: 0.70 },
+    { note: 'Eb4', midi: 63, time: 25.19, duration: 0.61, velocity: 0.70 },
+    { note: 'D4',  midi: 62, time: 25.80, duration: 0.61, velocity: 0.68 },
+    { note: 'Eb4', midi: 63, time: 26.41, duration: 3.64, velocity: 0.75 }, // final held
+  ];
+
+  return {
+    name: 'Nocturne Op. 9 No. 2',
+    duration: 30.05,
+    tempo: 66,
+    timeSignature: { timeSignature: [12, 8] },
+    tracks: 1,
+    notes,
+    totalNotes: notes.length,
+    difficulty: 'advanced',
+  };
+}
+
+/**
  * Get notes that should be playing at a specific time
  * @param {Array} notes - Array of note objects
  * @param {number} currentTime - Current playback time in seconds
