@@ -157,6 +157,8 @@ header h1 {
 .app-card.coming-soon {
   opacity: 0.7;
   border: 2px dashed #ddd;
+  cursor: default;
+  pointer-events: none;
 }
 
 .app-icon {
@@ -166,7 +168,7 @@ header h1 {
 
 .app-card h2 {
   font-size: 1.75rem;
-  color: #1e90ff;
+  color: #764ba2;
   margin-bottom: 16px;
 }
 
@@ -181,18 +183,18 @@ header h1 {
 .app-link {
   display: inline-block;
   padding: 12px 32px;
-  background: linear-gradient(90deg, #1e90ff 0%, #6ec6f7 100%);
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   color: white;
   text-decoration: none;
   border-radius: 8px;
   font-weight: 600;
   font-size: 1.1rem;
   transition: background 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .app-link:hover {
-  background: linear-gradient(90deg, #1873cc 0%, #5ab3e8 100%);
+  background: linear-gradient(90deg, #5567d4 0%, #653f91 100%);
   transform: scale(1.05);
 }
 
