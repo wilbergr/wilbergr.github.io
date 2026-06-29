@@ -1150,6 +1150,73 @@ export function createGreensleevesSong() {
 }
 
 /**
+ * Create When the Saints Go Marching In song
+ * @returns {Object} Song data for When the Saints Go Marching In
+ */
+export function createSaintsGoMarchingSong() {
+  // 4/4 time at 120 BPM: q=0.5s, e=0.25s, h=1.0s, dh=1.5s
+  const notes = [
+    // Oh when the saints (pickup)
+    { note: 'C4', midi: 60, time: 0.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 0.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 1.0,  duration: 0.5, velocity: 0.8 },
+    // go marching in
+    { note: 'G4', midi: 67, time: 1.5,  duration: 2.0, velocity: 0.85 },
+    // Oh when the saints go marching in
+    { note: 'C4', midi: 60, time: 3.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 4.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 4.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 5.0,  duration: 2.0, velocity: 0.85 },
+    // Oh Lord I want to be in that number
+    { note: 'C4', midi: 60, time: 7.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 7.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 8.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 8.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 9.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 9.5,  duration: 1.0, velocity: 0.85 },
+    { note: 'D4', midi: 62, time: 10.5, duration: 1.0, velocity: 0.85 },
+    // When the saints go marching in
+    { note: 'C4', midi: 60, time: 11.5, duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 12.0, duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 12.5, duration: 0.5, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 13.0, duration: 1.0, velocity: 0.85 },
+    { note: 'F4', midi: 65, time: 14.0, duration: 2.0, velocity: 0.85 },
+    // Second verse — Oh when the sun...
+    { note: 'C4', midi: 60, time: 16.0, duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 16.5, duration: 0.5, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 17.0, duration: 0.5, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 17.5, duration: 2.0, velocity: 0.85 },
+    { note: 'C4', midi: 60, time: 19.5, duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 20.0, duration: 0.5, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 20.5, duration: 0.5, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 21.0, duration: 2.0, velocity: 0.85 },
+    { note: 'C4', midi: 60, time: 23.0, duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 23.5, duration: 0.5, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 24.0, duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 24.5, duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 25.0, duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 25.5, duration: 1.0, velocity: 0.85 },
+    { note: 'D4', midi: 62, time: 26.5, duration: 1.0, velocity: 0.85 },
+    { note: 'C4', midi: 60, time: 27.5, duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 28.0, duration: 0.5, velocity: 0.8 },
+    { note: 'E4', midi: 64, time: 28.5, duration: 0.5, velocity: 0.8 },
+    { note: 'G4', midi: 67, time: 29.0, duration: 1.0, velocity: 0.85 },
+    { note: 'F4', midi: 65, time: 30.0, duration: 2.0, velocity: 0.9 },
+  ];
+
+  return {
+    name: 'When the Saints Go Marching In',
+    duration: 32.0,
+    tempo: 120,
+    timeSignature: { timeSignature: [4, 4] },
+    tracks: 1,
+    notes,
+    totalNotes: notes.length,
+    difficulty: 'intermediate',
+  };
+}
+
+/**
  * Get notes that should be playing at a specific time
  * @param {Array} notes - Array of note objects
  * @param {number} currentTime - Current playback time in seconds
