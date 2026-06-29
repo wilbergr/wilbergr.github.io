@@ -1217,6 +1217,65 @@ export function createSaintsGoMarchingSong() {
 }
 
 /**
+ * Create Danny Boy song (Londonderry Air)
+ * @returns {Object} Song data for Danny Boy
+ */
+export function createDannyBoySong() {
+  // 4/4 time at 72 BPM: q=0.833s, e=0.417s, h=1.667s, dq=1.25s, dh=2.5s
+  // Using rounded values: q=0.83, e=0.42, h=1.67, dq=1.25, dh=2.5
+  const notes = [
+    // Oh Dan-ny boy, the pipes the pipes are call-ing
+    { note: 'G4', midi: 67, time: 0.0,  duration: 0.42, velocity: 0.75 }, // pickup
+    { note: 'C5', midi: 72, time: 0.42, duration: 1.25, velocity: 0.8  },
+    { note: 'C5', midi: 72, time: 1.67, duration: 0.42, velocity: 0.75 },
+    { note: 'D5', midi: 74, time: 2.09, duration: 0.83, velocity: 0.8  },
+    { note: 'C5', midi: 72, time: 2.92, duration: 0.83, velocity: 0.8  },
+    { note: 'A4', midi: 69, time: 3.75, duration: 1.67, velocity: 0.8  },
+    { note: 'G4', midi: 67, time: 5.42, duration: 0.83, velocity: 0.75 },
+    { note: 'E4', midi: 64, time: 6.25, duration: 1.25, velocity: 0.78 },
+    // From glen to glen and down the moun-tain side
+    { note: 'G4', midi: 67, time: 7.5,  duration: 0.42, velocity: 0.75 },
+    { note: 'A4', midi: 69, time: 7.92, duration: 0.83, velocity: 0.8  },
+    { note: 'C5', midi: 72, time: 8.75, duration: 1.25, velocity: 0.8  },
+    { note: 'C5', midi: 72, time: 10.0, duration: 0.42, velocity: 0.75 },
+    { note: 'D5', midi: 74, time: 10.42, duration: 0.83, velocity: 0.8  },
+    { note: 'E5', midi: 76, time: 11.25, duration: 0.83, velocity: 0.82 },
+    { note: 'D5', midi: 74, time: 12.08, duration: 1.67, velocity: 0.82 },
+    { note: 'C5', midi: 72, time: 13.75, duration: 0.83, velocity: 0.8  },
+    { note: 'G4', midi: 67, time: 14.58, duration: 2.5,  velocity: 0.8  },
+    // The sum-mer's gone, and all the ro-ses fall-ing
+    { note: 'G4', midi: 67, time: 17.08, duration: 0.42, velocity: 0.75 },
+    { note: 'C5', midi: 72, time: 17.5,  duration: 1.25, velocity: 0.8  },
+    { note: 'C5', midi: 72, time: 18.75, duration: 0.42, velocity: 0.75 },
+    { note: 'D5', midi: 74, time: 19.17, duration: 0.83, velocity: 0.8  },
+    { note: 'C5', midi: 72, time: 20.0,  duration: 0.83, velocity: 0.8  },
+    { note: 'A4', midi: 69, time: 20.83, duration: 1.67, velocity: 0.8  },
+    { note: 'G4', midi: 67, time: 22.5,  duration: 0.83, velocity: 0.75 },
+    { note: 'E4', midi: 64, time: 23.33, duration: 1.25, velocity: 0.78 },
+    // 'Tis you, 'tis you must go and I must bide
+    { note: 'G4', midi: 67, time: 24.58, duration: 0.42, velocity: 0.75 },
+    { note: 'A4', midi: 69, time: 25.0,  duration: 0.83, velocity: 0.8  },
+    { note: 'C5', midi: 72, time: 25.83, duration: 0.83, velocity: 0.8  },
+    { note: 'D5', midi: 74, time: 26.66, duration: 0.83, velocity: 0.82 },
+    { note: 'E5', midi: 76, time: 27.49, duration: 0.83, velocity: 0.85 },
+    { note: 'D5', midi: 74, time: 28.32, duration: 1.25, velocity: 0.82 },
+    { note: 'C5', midi: 72, time: 29.57, duration: 0.42, velocity: 0.8  },
+    { note: 'C5', midi: 72, time: 29.99, duration: 3.33, velocity: 0.85 }, // final held
+  ];
+
+  return {
+    name: 'Danny Boy',
+    duration: 33.32,
+    tempo: 72,
+    timeSignature: { timeSignature: [4, 4] },
+    tracks: 1,
+    notes,
+    totalNotes: notes.length,
+    difficulty: 'intermediate',
+  };
+}
+
+/**
  * Get notes that should be playing at a specific time
  * @param {Array} notes - Array of note objects
  * @param {number} currentTime - Current playback time in seconds

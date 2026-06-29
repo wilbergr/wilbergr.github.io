@@ -186,6 +186,17 @@
       "unlocked": true,
       "preview": "Upbeat gospel/jazz standard",
       "description": "A joyful New Orleans anthem with a driving quarter-note pulse — excellent for building rhythmic confidence."
+    },
+    {
+      "id": "danny-boy",
+      "title": "Danny Boy",
+      "difficulty": "intermediate",
+      "order": 18,
+      "midiFile": "danny-boy",
+      "triviaQuestionId": "q18",
+      "unlocked": true,
+      "preview": "Irish folk melody, slow and lyrical",
+      "description": "The Londonderry Air is one of the most beautiful melodies in the folk tradition — its long, arching phrases reward expressive phrasing."
     }
   ]
 }
