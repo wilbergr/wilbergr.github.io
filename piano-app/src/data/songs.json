@@ -219,6 +219,17 @@
       "unlocked": true,
       "preview": "Arpeggiated broken chords, BWV 846",
       "description": "The opening prelude from Bach's Well-Tempered Clavier — a cascading sequence of broken chords that demands evenness and control."
+    },
+    {
+      "id": "turkish-march",
+      "title": "Turkish March",
+      "difficulty": "advanced",
+      "order": 21,
+      "midiFile": "turkish-march",
+      "triviaQuestionId": "q21",
+      "unlocked": true,
+      "preview": "Mozart's Rondo alla Turca, K. 331",
+      "description": "Mozart's energetic march features rapid repeated notes, quick runs, and a brilliant A major section that demands crisp articulation."
     }
   ]
 }

@@ -1424,6 +1424,100 @@ export function createBachPreludeSong() {
 }
 
 /**
+ * Create Turkish March (Mozart Rondo alla Turca, K. 331)
+ * @returns {Object} Song data for Turkish March
+ */
+export function createTurkishMarchSong() {
+  // 2/4 time at 160 BPM: q=0.375s, e=0.1875s, dq=0.5625s
+  // Using e=0.19s, q=0.38s for readability (slight rounding)
+  const e = 0.19;
+  const q = 0.38;
+
+  const notes = [
+    // Section A — opening 8-bar theme (A minor)
+    // Bar 1-2: B4 A4 / B4 A4 B4 E4 D4 C4
+    { note: 'B4', midi: 71, time: 0.0,  duration: e, velocity: 0.80 },
+    { note: 'A4', midi: 69, time: 0.19, duration: e, velocity: 0.80 },
+    { note: 'B4', midi: 71, time: 0.38, duration: e, velocity: 0.80 },
+    { note: 'A4', midi: 69, time: 0.57, duration: e, velocity: 0.80 },
+    { note: 'B4', midi: 71, time: 0.76, duration: e, velocity: 0.80 },
+    { note: 'E4', midi: 64, time: 0.95, duration: e, velocity: 0.80 },
+    { note: 'D4', midi: 62, time: 1.14, duration: e, velocity: 0.80 },
+    { note: 'C4', midi: 60, time: 1.33, duration: e, velocity: 0.80 },
+    // Bar 3-4: A4 C4 E4 A4 / B4 E4 G#4 B4
+    { note: 'A3', midi: 57, time: 1.52, duration: e, velocity: 0.85 },
+    { note: 'C4', midi: 60, time: 1.71, duration: e, velocity: 0.80 },
+    { note: 'E4', midi: 64, time: 1.90, duration: e, velocity: 0.80 },
+    { note: 'A4', midi: 69, time: 2.09, duration: q, velocity: 0.85 },
+    { note: 'E4', midi: 64, time: 2.47, duration: e, velocity: 0.80 },
+    { note: 'G#4', midi: 68, time: 2.66, duration: e, velocity: 0.80 },
+    { note: 'B4', midi: 71, time: 2.85, duration: q, velocity: 0.85 },
+    // Bar 5-6: B4 A4 B4 A4 B4 E4 D4 C4
+    { note: 'B4', midi: 71, time: 3.23, duration: e, velocity: 0.80 },
+    { note: 'A4', midi: 69, time: 3.42, duration: e, velocity: 0.80 },
+    { note: 'B4', midi: 71, time: 3.61, duration: e, velocity: 0.80 },
+    { note: 'A4', midi: 69, time: 3.80, duration: e, velocity: 0.80 },
+    { note: 'B4', midi: 71, time: 3.99, duration: e, velocity: 0.80 },
+    { note: 'E4', midi: 64, time: 4.18, duration: e, velocity: 0.80 },
+    { note: 'D4', midi: 62, time: 4.37, duration: e, velocity: 0.80 },
+    { note: 'C4', midi: 60, time: 4.56, duration: e, velocity: 0.80 },
+    // Bar 7-8: A3 C4 E4 A4 / E4 A4 C5 A4 E4
+    { note: 'A3', midi: 57, time: 4.75, duration: e, velocity: 0.85 },
+    { note: 'C4', midi: 60, time: 4.94, duration: e, velocity: 0.80 },
+    { note: 'E4', midi: 64, time: 5.13, duration: e, velocity: 0.80 },
+    { note: 'A4', midi: 69, time: 5.32, duration: e, velocity: 0.85 },
+    { note: 'E4', midi: 64, time: 5.51, duration: e, velocity: 0.80 },
+    { note: 'C4', midi: 60, time: 5.70, duration: e, velocity: 0.80 },
+    { note: 'A3', midi: 57, time: 5.89, duration: q, velocity: 0.85 },
+    // Section B — A major (bright contrasting section)
+    // Bar 9-10: A4 G#4 A4 E4 / A4 G#4 A4 B4
+    { note: 'A4', midi: 69, time: 6.27, duration: e, velocity: 0.82 },
+    { note: 'G#4', midi: 68, time: 6.46, duration: e, velocity: 0.80 },
+    { note: 'A4', midi: 69, time: 6.65, duration: e, velocity: 0.82 },
+    { note: 'E4', midi: 64, time: 6.84, duration: q, velocity: 0.85 },
+    { note: 'A4', midi: 69, time: 7.22, duration: e, velocity: 0.82 },
+    { note: 'G#4', midi: 68, time: 7.41, duration: e, velocity: 0.80 },
+    { note: 'A4', midi: 69, time: 7.60, duration: e, velocity: 0.82 },
+    { note: 'B4', midi: 71, time: 7.79, duration: q, velocity: 0.85 },
+    // Bar 11-12: C5 B4 A4 G#4 / A4 E4 A4 C5
+    { note: 'C5', midi: 72, time: 8.17, duration: e, velocity: 0.85 },
+    { note: 'B4', midi: 71, time: 8.36, duration: e, velocity: 0.82 },
+    { note: 'A4', midi: 69, time: 8.55, duration: e, velocity: 0.82 },
+    { note: 'G#4', midi: 68, time: 8.74, duration: e, velocity: 0.80 },
+    { note: 'A4', midi: 69, time: 8.93, duration: e, velocity: 0.85 },
+    { note: 'E4', midi: 64, time: 9.12, duration: e, velocity: 0.80 },
+    { note: 'C4', midi: 60, time: 9.31, duration: e, velocity: 0.80 },
+    { note: 'A3', midi: 57, time: 9.50, duration: e, velocity: 0.80 },
+    // Bar 13-14: A4 G#4 A4 E4 / A4 G#4 A4 B4
+    { note: 'A4', midi: 69, time: 9.69, duration: e, velocity: 0.82 },
+    { note: 'G#4', midi: 68, time: 9.88, duration: e, velocity: 0.80 },
+    { note: 'A4', midi: 69, time: 10.07, duration: e, velocity: 0.82 },
+    { note: 'E4', midi: 64, time: 10.26, duration: q, velocity: 0.85 },
+    { note: 'A4', midi: 69, time: 10.64, duration: e, velocity: 0.82 },
+    { note: 'G#4', midi: 68, time: 10.83, duration: e, velocity: 0.80 },
+    { note: 'A4', midi: 69, time: 11.02, duration: e, velocity: 0.82 },
+    { note: 'B4', midi: 71, time: 11.21, duration: q, velocity: 0.85 },
+    // Bar 15-16: C5 B4 A4 E4 / A4 (cadence)
+    { note: 'C5', midi: 72, time: 11.59, duration: e, velocity: 0.88 },
+    { note: 'B4', midi: 71, time: 11.78, duration: e, velocity: 0.85 },
+    { note: 'A4', midi: 69, time: 11.97, duration: e, velocity: 0.85 },
+    { note: 'E4', midi: 64, time: 12.16, duration: e, velocity: 0.82 },
+    { note: 'A4', midi: 69, time: 12.35, duration: q * 2, velocity: 0.9 }, // final
+  ];
+
+  return {
+    name: 'Turkish March',
+    duration: 13.11,
+    tempo: 160,
+    timeSignature: { timeSignature: [2, 4] },
+    tracks: 1,
+    notes,
+    totalNotes: notes.length,
+    difficulty: 'advanced',
+  };
+}
+
+/**
  * Get notes that should be playing at a specific time
  * @param {Array} notes - Array of note objects
  * @param {number} currentTime - Current playback time in seconds
