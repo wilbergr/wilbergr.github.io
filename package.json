@@ -11,7 +11,8 @@
     "deploy:piano": "cd piano-app && npm run deploy",
     "deploy:chess": "cd chess-app && npm run deploy",
     "deploy:sound-waves": "cd sound-waves && npm run deploy",
-    "deploy:all": "npm run deploy && npm run deploy:birthday && npm run deploy:piano && npm run deploy:chess && npm run deploy:sound-waves"
+    "deploy:guitar": "cd guitar-app && npm run deploy",
+    "deploy:all": "npm run deploy && npm run deploy:birthday && npm run deploy:piano && npm run deploy:chess && npm run deploy:sound-waves && npm run deploy:guitar"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
