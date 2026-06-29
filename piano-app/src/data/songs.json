@@ -241,6 +241,17 @@
       "unlocked": true,
       "preview": "Chopin's famous Eb major nocturne",
       "description": "The opening of Chopin's most beloved nocturne — a singing, ornamented melody in Eb major that requires sensitivity and tonal control."
+    },
+    {
+      "id": "clair-de-lune",
+      "title": "Clair de Lune",
+      "difficulty": "advanced",
+      "order": 23,
+      "midiFile": "clair-de-lune",
+      "triviaQuestionId": "q23",
+      "unlocked": true,
+      "preview": "Debussy's impressionist masterpiece",
+      "description": "The opening theme of Debussy's Clair de Lune — a slow, atmospheric melody in Db major that demands delicate touch and careful voicing."
     }
   ]
 }

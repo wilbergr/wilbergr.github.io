@@ -24,6 +24,7 @@ import {
   createBachPreludeSong,
   createTurkishMarchSong,
   createChopinNocturneSong,
+  createClairDeLuneSong,
   getNotesAtTime
 } from '../../services/midiParser';
 import audioService from '../../services/audioService';
@@ -290,6 +291,8 @@ function SongPlayer({ onHighlightKeys, onSongComplete, onUserKeyPress, onKeyFeed
         songData = createTurkishMarchSong();
       } else if (song.midiFile === 'chopin-nocturne') {
         songData = createChopinNocturneSong();
+      } else if (song.midiFile === 'clair-de-lune') {
+        songData = createClairDeLuneSong();
       } else {
         // Load actual MIDI file
         songData = await parseMidiFile(song.midiFile);
