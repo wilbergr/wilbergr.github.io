@@ -1040,6 +1040,59 @@ export function createOldMacDonaldSong() {
 }
 
 /**
+ * Create Amazing Grace song
+ * @returns {Object} Song data for Amazing Grace
+ */
+export function createAmazingGraceSong() {
+  // 3/4 time at 80 BPM: quarter = 0.75s, half = 1.5s, dotted half = 2.25s
+  const q = 0.75;
+  const h = 1.5;
+  const dh = 2.25;
+  const notes = [
+    // A-maz-ing grace how sweet the sound
+    { note: 'C4', midi: 60, time: 0*q,   duration: q,  velocity: 0.75 }, // pickup
+    { note: 'F4', midi: 65, time: 1*q,   duration: h,  velocity: 0.8  },
+    { note: 'A4', midi: 69, time: 3*q,   duration: q,  velocity: 0.75 },
+    { note: 'C5', midi: 72, time: 4*q,   duration: h,  velocity: 0.8  },
+    { note: 'A4', midi: 69, time: 6*q,   duration: q,  velocity: 0.75 },
+    { note: 'C5', midi: 72, time: 7*q,   duration: h,  velocity: 0.8  },
+    { note: 'A4', midi: 69, time: 9*q,   duration: q,  velocity: 0.75 },
+    { note: 'F4', midi: 65, time: 10*q,  duration: dh, velocity: 0.8  },
+    // That saved a wretch like me
+    { note: 'F4', midi: 65, time: 13*q,  duration: q,  velocity: 0.75 },
+    { note: 'A4', midi: 69, time: 14*q,  duration: h,  velocity: 0.8  },
+    { note: 'C5', midi: 72, time: 16*q,  duration: q,  velocity: 0.75 },
+    { note: 'A4', midi: 69, time: 17*q,  duration: h,  velocity: 0.8  },
+    { note: 'F4', midi: 65, time: 19*q,  duration: dh, velocity: 0.8  },
+    // I once was lost but now am found
+    { note: 'C4', midi: 60, time: 22*q,  duration: q,  velocity: 0.75 },
+    { note: 'F4', midi: 65, time: 23*q,  duration: h,  velocity: 0.8  },
+    { note: 'A4', midi: 69, time: 25*q,  duration: q,  velocity: 0.75 },
+    { note: 'C5', midi: 72, time: 26*q,  duration: h,  velocity: 0.8  },
+    { note: 'A4', midi: 69, time: 28*q,  duration: q,  velocity: 0.75 },
+    { note: 'C5', midi: 72, time: 29*q,  duration: h,  velocity: 0.8  },
+    { note: 'A4', midi: 69, time: 31*q,  duration: q,  velocity: 0.75 },
+    { note: 'F4', midi: 65, time: 32*q,  duration: dh, velocity: 0.8  },
+    // Was blind but now I see
+    { note: 'F4', midi: 65, time: 35*q,  duration: q,  velocity: 0.75 },
+    { note: 'G4', midi: 67, time: 36*q,  duration: h,  velocity: 0.8  },
+    { note: 'A4', midi: 69, time: 38*q,  duration: q,  velocity: 0.75 },
+    { note: 'F4', midi: 65, time: 39*q,  duration: dh, velocity: 0.8  },
+  ];
+
+  return {
+    name: 'Amazing Grace',
+    duration: Math.round((39 + 3) * q * 100) / 100,
+    tempo: 80,
+    timeSignature: { timeSignature: [3, 4] },
+    tracks: 1,
+    notes,
+    totalNotes: notes.length,
+    difficulty: 'intermediate',
+  };
+}
+
+/**
  * Get notes that should be playing at a specific time
  * @param {Array} notes - Array of note objects
  * @param {number} currentTime - Current playback time in seconds

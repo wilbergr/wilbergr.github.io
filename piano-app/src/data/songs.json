@@ -153,6 +153,17 @@
       "unlocked": true,
       "preview": "Well-known children's song",
       "description": "A fun tune with repeated phrases and a memorable refrain — great practice for recognizing patterns on the keyboard."
+    },
+    {
+      "id": "amazing-grace",
+      "title": "Amazing Grace",
+      "difficulty": "intermediate",
+      "order": 15,
+      "midiFile": "amazing-grace",
+      "triviaQuestionId": "q15",
+      "unlocked": true,
+      "preview": "Flowing hymn in 3/4",
+      "description": "A timeless hymn with wide melodic leaps and long phrases in waltz time, perfect for developing expressive playing."
     }
   ]
 }
