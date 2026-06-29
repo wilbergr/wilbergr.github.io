@@ -208,6 +208,17 @@
       "unlocked": true,
       "preview": "Shaker hymn, Copland's Appalachian Spring",
       "description": "A beloved Shaker melody made famous by Copland — its stepwise motion and clear phrasing make it deeply satisfying to play."
+    },
+    {
+      "id": "bach-prelude",
+      "title": "Bach Prelude in C Major",
+      "difficulty": "advanced",
+      "order": 20,
+      "midiFile": "bach-prelude",
+      "triviaQuestionId": "q20",
+      "unlocked": true,
+      "preview": "Arpeggiated broken chords, BWV 846",
+      "description": "The opening prelude from Bach's Well-Tempered Clavier — a cascading sequence of broken chords that demands evenness and control."
     }
   ]
 }

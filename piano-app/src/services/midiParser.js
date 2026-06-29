@@ -1352,6 +1352,78 @@ export function createSimpleGiftsSong() {
 }
 
 /**
+ * Create Bach Prelude in C Major (BWV 846) — opening arpeggios
+ * @returns {Object} Song data for Bach Prelude
+ */
+export function createBachPreludeSong() {
+  // 4/4 at 72 BPM: each 16th note = 60/(72*4) = 0.208s ≈ 0.21s
+  // Each measure = 16 sixteenth notes = 3.33s
+  // Pattern: each chord is broken into 5 notes: bass, then 4 repeating upper notes
+  // C major chord: C2 E3 G3 C4 E4 (repeated pattern)
+  const s = 0.21; // sixteenth note duration
+
+  function addMeasure(chordNotes, startTime) {
+    // Bach's pattern: note[0](bass), note[1], note[2], note[3], note[4],
+    //                 note[2], note[3], note[4], note[2], note[3], note[4],
+    //                 note[2], note[3], note[4], note[2], note[3]
+    // Simplified: bass(2s), then upper 4 notes cycling for 14 sixteenths
+    const [bass, n1, n2, n3, n4] = chordNotes;
+    const pattern = [n1, n2, n3, n4, n2, n3, n4, n2, n3, n4, n2, n3, n4, n2, n3, n4];
+    const out = [];
+    out.push({ note: midiToNoteName(bass), midi: bass, time: startTime, duration: s * 2, velocity: 0.55 });
+    pattern.forEach((midi, i) => {
+      out.push({ note: midiToNoteName(midi), midi, time: startTime + s * i, duration: s, velocity: 0.45 });
+    });
+    return out;
+  }
+
+  // BWV 846 chord progression (first 8 measures):
+  // m1: C major  [36, 52, 55, 60, 64] (C2 E3 G3 C4 E4)
+  // m2: C major  [36, 52, 57, 60, 64] (C2 A3 variation)
+  // m3: D minor  [38, 53, 57, 62, 65] (D2 F3 A3 D4 F4)
+  // m4: G dom7   [43, 50, 55, 59, 65] (G2 D3 G3 B3 F4)
+  // m5: C major  [36, 52, 55, 60, 64]
+  // m6: Am       [33, 52, 57, 60, 64] (A1 E3 A3 C4 E4)
+  // m7: D7       [38, 50, 54, 60, 65] (D2 D3 F#3 C4 F4)
+  // m8: G major  [43, 50, 55, 59, 67] (G2 D3 G3 B3 G4)
+
+  const chords = [
+    [36, 52, 55, 60, 64], // C maj
+    [36, 52, 57, 60, 64], // C maj sus/add9
+    [38, 53, 57, 62, 65], // D min
+    [43, 50, 55, 59, 65], // G7
+    [36, 52, 55, 60, 64], // C maj
+    [33, 52, 57, 60, 64], // A min
+    [38, 50, 54, 60, 65], // D7
+    [43, 50, 55, 59, 67], // G maj
+  ];
+
+  const measureLen = s * 16; // 16 sixteenth notes per measure
+  const notes = [];
+
+  chords.forEach((chord, i) => {
+    const measureNotes = addMeasure(chord, i * measureLen);
+    measureNotes.forEach(n => notes.push(n));
+  });
+
+  // Sort by time
+  notes.sort((a, b) => a.time - b.time);
+
+  const duration = Math.round(chords.length * measureLen * 100) / 100;
+
+  return {
+    name: 'Bach Prelude in C Major',
+    duration,
+    tempo: 72,
+    timeSignature: { timeSignature: [4, 4] },
+    tracks: 1,
+    notes,
+    totalNotes: notes.length,
+    difficulty: 'advanced',
+  };
+}
+
+/**
  * Get notes that should be playing at a specific time
  * @param {Array} notes - Array of note objects
  * @param {number} currentTime - Current playback time in seconds

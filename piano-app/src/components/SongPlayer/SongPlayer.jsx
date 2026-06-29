@@ -21,6 +21,7 @@ import {
   createSaintsGoMarchingSong,
   createDannyBoySong,
   createSimpleGiftsSong,
+  createBachPreludeSong,
   getNotesAtTime
 } from '../../services/midiParser';
 import audioService from '../../services/audioService';
@@ -281,6 +282,8 @@ function SongPlayer({ onHighlightKeys, onSongComplete, onUserKeyPress, onKeyFeed
         songData = createDannyBoySong();
       } else if (song.midiFile === 'simple-gifts') {
         songData = createSimpleGiftsSong();
+      } else if (song.midiFile === 'bach-prelude') {
+        songData = createBachPreludeSong();
       } else {
         // Load actual MIDI file
         songData = await parseMidiFile(song.midiFile);
