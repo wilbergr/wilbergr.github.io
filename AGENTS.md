@@ -318,3 +318,15 @@ npm run deploy:all
 
 Each app's `package.json` `deploy` script runs `predeploy` (build) then `gh-pages -d dist --dest <app-name> --add`.
 After the push, GitHub Actions run `pages-build-deployment` on `gh-pages` branch (~1 min to complete).
+
+### Deploy checklist — what to run after each change
+
+| Changed files | Command to run |
+|---|---|
+| `index.html` or `styles.css` | `npm run deploy` (from repo root) |
+| `piano-app/src/**` | `cd piano-app && npm run deploy` |
+| `guitar-app/src/**` | `cd guitar-app && npm run deploy` |
+| New app tile added to `index.html` | Both root deploy **and** app deploy |
+| Everything | `npm run deploy:all` (from repo root) |
+
+**Warning:** app-specific deploys do NOT update the root landing page. If you add a new app tile to `index.html`, you must also run `npm run deploy` from the repo root, or the landing page on the live site will not reflect the change.
