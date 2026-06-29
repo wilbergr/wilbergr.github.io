@@ -919,6 +919,57 @@ export function createLondonBridgeSong() {
 }
 
 /**
+ * Create Row Row Row Your Boat song
+ * @returns {Object} Song data for Row Row Row Your Boat
+ */
+export function createRowYourBoatSong() {
+  const notes = [
+    // Row, row, row your boat
+    { note: 'C4', midi: 60, time: 0.0,  duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 0.5,  duration: 0.5, velocity: 0.8 },
+    { note: 'C4', midi: 60, time: 1.0,  duration: 0.375, velocity: 0.8 },
+    { note: 'D4', midi: 62, time: 1.375, duration: 0.125, velocity: 0.75 },
+    { note: 'E4', midi: 64, time: 1.5,  duration: 1.0, velocity: 0.8 },
+    // Gent-ly down the stream
+    { note: 'E4', midi: 64, time: 2.5,  duration: 0.375, velocity: 0.8 },
+    { note: 'D4', midi: 62, time: 2.875, duration: 0.125, velocity: 0.75 },
+    { note: 'E4', midi: 64, time: 3.0,  duration: 0.375, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 3.375, duration: 0.125, velocity: 0.75 },
+    { note: 'G4', midi: 67, time: 3.5,  duration: 1.5, velocity: 0.8 },
+    // Mer-ri-ly, mer-ri-ly, mer-ri-ly, mer-ri-ly
+    { note: 'C5', midi: 72, time: 5.0,  duration: 0.25, velocity: 0.75 },
+    { note: 'C5', midi: 72, time: 5.25, duration: 0.25, velocity: 0.75 },
+    { note: 'C5', midi: 72, time: 5.5,  duration: 0.25, velocity: 0.75 },
+    { note: 'G4', midi: 67, time: 5.75, duration: 0.25, velocity: 0.75 },
+    { note: 'G4', midi: 67, time: 6.0,  duration: 0.25, velocity: 0.75 },
+    { note: 'G4', midi: 67, time: 6.25, duration: 0.25, velocity: 0.75 },
+    { note: 'E4', midi: 64, time: 6.5,  duration: 0.25, velocity: 0.75 },
+    { note: 'E4', midi: 64, time: 6.75, duration: 0.25, velocity: 0.75 },
+    { note: 'E4', midi: 64, time: 7.0,  duration: 0.25, velocity: 0.75 },
+    { note: 'C4', midi: 60, time: 7.25, duration: 0.25, velocity: 0.75 },
+    { note: 'C4', midi: 60, time: 7.5,  duration: 0.25, velocity: 0.75 },
+    { note: 'C4', midi: 60, time: 7.75, duration: 0.25, velocity: 0.75 },
+    // Life is but a dream
+    { note: 'G4', midi: 67, time: 8.0,  duration: 0.375, velocity: 0.8 },
+    { note: 'F4', midi: 65, time: 8.375, duration: 0.125, velocity: 0.75 },
+    { note: 'E4', midi: 64, time: 8.5,  duration: 0.375, velocity: 0.8 },
+    { note: 'D4', midi: 62, time: 8.875, duration: 0.125, velocity: 0.75 },
+    { note: 'C4', midi: 60, time: 9.0,  duration: 1.0, velocity: 0.8 },
+  ];
+
+  return {
+    name: 'Row Row Row Your Boat',
+    duration: 10.0,
+    tempo: 120,
+    timeSignature: { timeSignature: [3, 4] },
+    tracks: 1,
+    notes,
+    totalNotes: notes.length,
+    difficulty: 'beginner',
+  };
+}
+
+/**
  * Get notes that should be playing at a specific time
  * @param {Array} notes - Array of note objects
  * @param {number} currentTime - Current playback time in seconds

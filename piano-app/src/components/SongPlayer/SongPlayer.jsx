@@ -14,6 +14,7 @@ import {
   createHotCrossBunsSong,
   createYankeeDoodleSong,
   createLondonBridgeSong,
+  createRowYourBoatSong,
   getNotesAtTime
 } from '../../services/midiParser';
 import audioService from '../../services/audioService';
@@ -260,6 +261,8 @@ function SongPlayer({ onHighlightKeys, onSongComplete, onUserKeyPress, onKeyFeed
         songData = createYankeeDoodleSong();
       } else if (song.midiFile === 'london-bridge') {
         songData = createLondonBridgeSong();
+      } else if (song.midiFile === 'row-your-boat') {
+        songData = createRowYourBoatSong();
       } else {
         // Load actual MIDI file
         songData = await parseMidiFile(song.midiFile);

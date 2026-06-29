@@ -131,6 +131,17 @@
       "unlocked": true,
       "preview": "Classic children's melody",
       "description": "A gentle stepwise melody ideal for beginners, introducing small skips and a satisfying phrase structure."
+    },
+    {
+      "id": "row-your-boat",
+      "title": "Row Row Row Your Boat",
+      "difficulty": "beginner",
+      "order": 13,
+      "midiFile": "row-your-boat",
+      "triviaQuestionId": "q13",
+      "unlocked": true,
+      "preview": "Simple round melody",
+      "description": "A cheerful tune in 3/4 time that introduces dotted rhythms and ascending runs up to high C."
     }
   ]
 }
