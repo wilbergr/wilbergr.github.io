@@ -164,6 +164,17 @@
       "unlocked": true,
       "preview": "Flowing hymn in 3/4",
       "description": "A timeless hymn with wide melodic leaps and long phrases in waltz time, perfect for developing expressive playing."
+    },
+    {
+      "id": "greensleeves",
+      "title": "Greensleeves",
+      "difficulty": "intermediate",
+      "order": 16,
+      "midiFile": "greensleeves",
+      "triviaQuestionId": "q16",
+      "unlocked": true,
+      "preview": "English Renaissance folk song",
+      "description": "An elegant 3/4 melody in A minor with characteristic dotted rhythms and a beautiful refrain — great for musicality."
     }
   ]
 }

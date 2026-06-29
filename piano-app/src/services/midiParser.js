@@ -1093,6 +1093,63 @@ export function createAmazingGraceSong() {
 }
 
 /**
+ * Create Greensleeves song
+ * @returns {Object} Song data for Greensleeves
+ */
+export function createGreensleevesSong() {
+  // 3/4 time at 100 BPM: q=0.6s, e=0.3s, dq=0.9s, dh=1.8s
+  // All times are explicit and sequential (each = previous time + previous duration)
+  const notes = [
+    // VERSE — "Alas my love, you do me wrong..."
+    { note: 'A3',  midi: 57, time: 0.0,  duration: 0.6, velocity: 0.75 }, // pickup
+    { note: 'C4',  midi: 60, time: 0.6,  duration: 0.9, velocity: 0.80 },
+    { note: 'D4',  midi: 62, time: 1.5,  duration: 0.3, velocity: 0.75 },
+    { note: 'E4',  midi: 64, time: 1.8,  duration: 0.6, velocity: 0.80 },
+    { note: 'F4',  midi: 65, time: 2.4,  duration: 0.6, velocity: 0.78 },
+    { note: 'E4',  midi: 64, time: 3.0,  duration: 0.9, velocity: 0.80 },
+    { note: 'C4',  midi: 60, time: 3.9,  duration: 0.3, velocity: 0.75 },
+    { note: 'D4',  midi: 62, time: 4.2,  duration: 0.9, velocity: 0.80 },
+    { note: 'B3',  midi: 59, time: 5.1,  duration: 0.3, velocity: 0.75 },
+    { note: 'G#3', midi: 56, time: 5.4,  duration: 1.8, velocity: 0.80 }, // held
+    { note: 'B3',  midi: 59, time: 7.2,  duration: 0.6, velocity: 0.75 },
+    { note: 'A3',  midi: 57, time: 7.8,  duration: 0.9, velocity: 0.80 },
+    { note: 'G3',  midi: 55, time: 8.7,  duration: 0.3, velocity: 0.75 },
+    { note: 'A3',  midi: 57, time: 9.0,  duration: 0.9, velocity: 0.80 },
+    { note: 'B3',  midi: 59, time: 9.9,  duration: 0.3, velocity: 0.75 },
+    { note: 'C4',  midi: 60, time: 10.2, duration: 1.8, velocity: 0.80 }, // held
+    { note: 'A3',  midi: 57, time: 12.0, duration: 1.8, velocity: 0.80 }, // held — end verse
+    // REFRAIN — "Greensleeves was all my joy..."
+    { note: 'C4',  midi: 60, time: 13.8, duration: 0.9, velocity: 0.85 },
+    { note: 'D4',  midi: 62, time: 14.7, duration: 0.3, velocity: 0.80 },
+    { note: 'E4',  midi: 64, time: 15.0, duration: 0.6, velocity: 0.85 },
+    { note: 'F4',  midi: 65, time: 15.6, duration: 0.6, velocity: 0.82 },
+    { note: 'E4',  midi: 64, time: 16.2, duration: 0.9, velocity: 0.85 },
+    { note: 'C4',  midi: 60, time: 17.1, duration: 0.3, velocity: 0.80 },
+    { note: 'D4',  midi: 62, time: 17.4, duration: 0.9, velocity: 0.85 },
+    { note: 'B3',  midi: 59, time: 18.3, duration: 0.3, velocity: 0.80 },
+    { note: 'G#3', midi: 56, time: 18.6, duration: 1.8, velocity: 0.85 }, // held
+    { note: 'B3',  midi: 59, time: 20.4, duration: 0.6, velocity: 0.80 },
+    { note: 'A3',  midi: 57, time: 21.0, duration: 0.9, velocity: 0.85 },
+    { note: 'G3',  midi: 55, time: 21.9, duration: 0.3, velocity: 0.80 },
+    { note: 'A3',  midi: 57, time: 22.2, duration: 0.9, velocity: 0.85 },
+    { note: 'B3',  midi: 59, time: 23.1, duration: 0.3, velocity: 0.80 },
+    { note: 'C4',  midi: 60, time: 23.4, duration: 1.8, velocity: 0.85 }, // held
+    { note: 'A3',  midi: 57, time: 25.2, duration: 1.8, velocity: 0.90 }, // final held
+  ];
+
+  return {
+    name: 'Greensleeves',
+    duration: 27.0,
+    tempo: 100,
+    timeSignature: { timeSignature: [3, 4] },
+    tracks: 1,
+    notes,
+    totalNotes: notes.length,
+    difficulty: 'intermediate',
+  };
+}
+
+/**
  * Get notes that should be playing at a specific time
  * @param {Array} notes - Array of note objects
  * @param {number} currentTime - Current playback time in seconds

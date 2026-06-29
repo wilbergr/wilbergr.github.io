@@ -17,6 +17,7 @@ import {
   createRowYourBoatSong,
   createOldMacDonaldSong,
   createAmazingGraceSong,
+  createGreensleevesSong,
   getNotesAtTime
 } from '../../services/midiParser';
 import audioService from '../../services/audioService';
@@ -269,6 +270,8 @@ function SongPlayer({ onHighlightKeys, onSongComplete, onUserKeyPress, onKeyFeed
         songData = createOldMacDonaldSong();
       } else if (song.midiFile === 'amazing-grace') {
         songData = createAmazingGraceSong();
+      } else if (song.midiFile === 'greensleeves') {
+        songData = createGreensleevesSong();
       } else {
         // Load actual MIDI file
         songData = await parseMidiFile(song.midiFile);
