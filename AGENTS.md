@@ -17,7 +17,10 @@ wilbergr.github.io/
 ├── package.json            # Root deployment scripts
 ├── README.md               # Repository documentation
 ├── birthday/               # Birthday meme generator app (React + Vite)
-└── piano-app/              # Piano learning app (React + Vite + Tone.js)
+├── piano-app/              # Piano learning app (React + Vite + Tone.js)
+├── chess-app/              # Chess trainer app (React + Vite)
+├── sound-waves/            # Sound waves & harmony visualizer (React + Vite)
+└── guitar-app/             # Guitar learning app (React + Vite + Tone.js PluckSynth)
 ```
 
 ## Common Commands
@@ -259,6 +262,42 @@ All generated programmatically via `midiParser.js`.
 - Lazy loading of samples (preload without audio context start)
 - Requires user interaction to initialize audio context
 - Custom hooks for performance tracking and playback loop management
+
+## Guitar App Architecture
+
+**Tech Stack**: React 19, Vite 7, Tone.js 15 (PluckSynth)
+
+### Key Components
+
+**App.jsx** — Top-level state: instrument, selectedChord, activeStrings, appMode (learn/challenge), audioReady.
+
+**InstrumentSelector** — Switches between guitar (6-string), bass (4-string), ukulele (4-string). Resets chord selection on change.
+
+**Fretboard** (`Fretboard.jsx` + `GuitarString.jsx`) — SVG horizontal fretboard (12 frets). Thinnest string at top. Shows chord fingering dots and barre bars. Each fret cell is clickable for plucking. Supports `placementMode` for challenge fretboard placement.
+
+**ChordDiagram** + **ChordList** — Traditional vertical chord box diagram (SVG). ChordList groups chords by major/minor type with a 2-column grid.
+
+**ChordChallenge** — Two challenge types: Diagram Recognition (pick correct diagram from 4 options) and Fretboard Placement (tap correct fret positions). Both have Practice (no timer) and Timed (15 rounds, 10s each) modes. 75% pass threshold.
+
+### Data Layer
+
+**`src/data/tunings.js`** — `TUNINGS` object for guitar/bass/ukulele. String index 0 = thickest/lowest string always.
+
+**`src/data/chords.js`** — `ALL_CHORDS` array. 14 guitar chords (major + minor), 14 bass power chords, 14 ukulele chords = 42 total. Chord shape: `{ id, name, shortName, root, type, instrument, strings[], fingers[], barre, startFret }`.
+
+**`src/services/audioService.js`** — Singleton `GuitarAudioService`. One `Tone.PluckSynth` per string. Re-initializes on instrument change (different string count). Call `init(stringCount)` after first user gesture.
+
+**`src/services/chordUtils.js`** — `getChordsForInstrument()`, `getNoteForFret()`, `getDecoyChords()`, `chordsMatch()`.
+
+### String Index Convention
+
+`strings[]` array index 0 = thickest string (low E for guitar, low E for bass, G for uke). The fretboard SVG shows thinnest string at the top (display row = `stringCount - 1 - si`).
+
+### Deploy
+
+```bash
+cd guitar-app && npm run deploy
+```
 
 ## Deployment
 
