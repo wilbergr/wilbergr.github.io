@@ -289,6 +289,16 @@ All generated programmatically via `midiParser.js`.
 
 **`src/services/chordUtils.js`** — `getChordsForInstrument()`, `getNoteForFret()`, `getDecoyChords()`, `chordsMatch()`.
 
+### Design System
+
+`src/styles/tokens.css` defines all color / spacing / radius / typography custom properties (`--bg`, `--surface`, `--accent` warm copper, `--space-1..8` on a 4px scale, `--font-sans` Inter Variable, `--font-mono` JetBrains Mono Variable, with `prefers-color-scheme: light` overrides). It is imported from `main.jsx` before `index.css`. New CSS must use these tokens — no hex literals or hand-rolled gradients.
+
+Buttons use a base `.btn` class with variants `.btn-primary`, `.btn-secondary`, `.btn-ghost`, `.btn-icon` (defined in `index.css`). All variants enforce `min-height: 44px` / `min-width: 44px` for touch targets. Compose: `<button class="btn btn-primary">`. Keep positional/layout overrides in component CSS; do not redeclare gradient/padding/border-radius there.
+
+`:focus-visible` is wired globally to a 2px copper outline — do not strip outlines per-component.
+
+Animations must be wrapped in `@media (prefers-reduced-motion: no-preference)` (see `Fretboard.css` `stringPulse`, `ChordChallenge.css` `timerPulse`).
+
 ### String Index Convention
 
 `strings[]` array index 0 = thickest string (low E for guitar, low E for bass, G for uke). The fretboard SVG shows thinnest string at the top (display row = `stringCount - 1 - si`).
