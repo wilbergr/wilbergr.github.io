@@ -299,6 +299,8 @@ Buttons use a base `.btn` class with variants `.btn-primary`, `.btn-secondary`, 
 
 Animations must be wrapped in `@media (prefers-reduced-motion: no-preference)` (see `Fretboard.css` `stringPulse`, `ChordChallenge.css` `timerPulse`).
 
+Icons are [`lucide-react`](https://lucide.dev) components — no decorative emoji in the UI. Size and color them via CSS, not hardcoded `size=`/`color=` props: `.btn svg` and the `.inline-icon` utility (both in `index.css`) size icons to the surrounding font (`em` units) and icons inherit `currentColor`. An icon that carries meaning needs an adjacent text label or an `aria-label`. To place an icon inside an existing SVG (e.g. the muted/open string markers in `Fretboard.jsx` / `ChordDiagram.jsx`), render the Lucide component as a nested `<svg>` with `x`/`y`/`width`/`height` and set its color via `style={{ color: 'var(--token)' }}` — `var()` does not resolve in SVG presentation attributes like `stroke=`. The Edit/Play control is a segmented control (`.segmented-control` + `.segment` in `Fretboard.css`): the active segment is `btn btn-primary active`, the inactive one `btn btn-ghost`, each calling `onEditModeChange(true|false)`.
+
 ### String Index Convention
 
 `strings[]` array index 0 = thickest string (low E for guitar, low E for bass, G for uke). The fretboard SVG shows thinnest string at the top (display row = `stringCount - 1 - si`).
