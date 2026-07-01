@@ -240,6 +240,16 @@ All generated programmatically via `midiParser.js`.
 - Auto-difficulty estimation
 - Music notation auto-conversion
 
+### Design System (shared tokens)
+
+Piano-app uses the **same design tokens as guitar-app** — `piano-app/src/styles/tokens.css` is a copy of `guitar-app/src/styles/tokens.css` (dark-neutral `--bg`/`--surface`, warm copper `--accent`, semantic `--success`/`--warning`/`--danger`, 4px spacing scale, radius/type scales, `prefers-color-scheme: light` overrides). Imported from `main.jsx` **before** `index.css`. New piano-app CSS must use these tokens — no hex literals or ad-hoc gradients. The global `box-sizing: border-box` reset lives at the top of `tokens.css`; keep it (it prevents `width:100%`+padding horizontal overflow at mobile widths — the old ~40px overflow bug).
+
+Mapping conventions established when the tokens were adopted:
+- Brand color → `--accent` (copper). The old toy-green (`#4caf50`/`#81c784`) and purple app-gradient are gone.
+- Difficulty/feedback status → semantic tokens: beginner/perfect/pass → `--success`, intermediate/ok → `--warning`, advanced/late/wrong/missed/fail → `--danger`. The "good" state stays literal blue (`#2196f3`) — no token maps to it.
+- **Intrinsic surfaces stay literal, not theme tokens**: the physical piano key faces (white keys white, black keys black) and their on-key `.key-label`/`.key-feedback` text, plus the white sheet-music paper in `MusicStaff.css`, are real-object colors — they must NOT flip with the theme. Highlighted/pressed keys tint copper (white keys) / amber (black keys) via `color-mix(... var(--accent)/var(--warning) ...)`.
+- Piano-app has **no theme toggle** yet (no `useTheme`, no `[data-theme]`), so light theme applies only via the `prefers-color-scheme` media query in `tokens.css`. Both themes render coherently; a persisted toggle mirroring guitar-app is a candidate for a later PR.
+
 ## Development Notes
 
 ### Both Apps
